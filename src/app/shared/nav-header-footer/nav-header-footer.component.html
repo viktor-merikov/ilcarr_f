@@ -1,0 +1,58 @@
+<!--////////////////////////////////////////////This our header with navigation bar///////////////////////////////////////////////////////-->
+<header>
+  <a routerLink="main"><img src="../../../assets/ilcarr.png"></a>
+  <ul>
+    <li *ngFor="let link of navLinks"><a routerLink="{{link.path}}" routerLinkActive="active">{{link.label}}</a></li>
+  </ul>
+</header>
+
+<!--///////////////////////This block with rout components/////////////////////////////////////////////////////////-->
+
+<router-outlet></router-outlet>
+
+<!--////////////////////////////////////// This block is our footer with information about us and other LINKS/////////////////////////////////////////////////////////////-->
+<footer>
+  <div class="foot_col_1">
+    <div class="col_1_1">
+      <p>Candy canes topping dessert jelly beans pie jelly beans sweet roll. Toffee cotton candy cake chocolate cake.
+        Bonbon gummi bears jelly-o bonbon fruitcake tootsie</p>
+    </div>
+    <div class="col_1_2">
+      <img src="../../../assets/ilcarr.png">
+    </div>
+    <div class="col_1_3">
+      <a href="http://www.facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a>
+      <a href="http://www.telegram.org" target="_blank"><i class="fab fa-telegram"></i></a>
+      <a href="http://www.vk.com" target="_blank"><i class="fab fa-vk"></i></a>
+      <a href="http://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="http://www.slack.com" target="_blank"><i class="fab fa-slack-hash"></i></a>
+    </div>
+  </div>
+  <div class="foot_col_2">
+    <div class="col_2_1">
+      <pre>
+        The ultimate
+        car rental service
+      </pre>
+    </div>
+    <div class="col_2_2">
+      <ul id="col_2_2_navlink">
+        <li *ngFor="let link of navLinks"><a routerLink="{{link.path}}" routerLinkActive="active">{{link.label}}</a>
+        </li>
+      </ul>
+      <hr>
+      <div id="foot_citys_addres">
+        <div id="foot_cities">
+          <h6>TOP CITIES</h6>
+          <ul>
+            <li *ngFor="let city of topCities">{{city}}</li>
+          </ul>
+        </div>
+        <div id="foot_address">
+          <p id="foot_tel">08-616-8800-55</p>
+          <p id="foot_address_text">1600 Amphitheatre Pkwy Mountain View, CA 94043, USA</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

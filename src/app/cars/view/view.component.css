@@ -1,0 +1,166 @@
+#foto_form {
+  display: flex;
+  width: 100%;
+}
+
+#foto_form #left_container {
+  flex: 4;
+  overflow: hidden;
+  padding-left: 60px;
+}
+
+#foto_form #foto {
+  width: 90%;
+  padding: 100px 0 0 8%;
+}
+
+#foto_form #right_container {
+  margin-top: 100px;
+  display: grid;
+  flex: 2;
+}
+
+#foto_form #foto p {
+  padding-left: 12%;
+  font: Bold 54px/66px Bebas Neue;
+  color: #062639;
+}
+
+#foto_form #foto p span {
+  font: Bold 32px/38px Bebas Neue;
+  color: #06263998;
+}
+
+#foto_form #foto_price {
+  position: relative;
+  bottom: 100px;
+  float: right;
+  width: 210px;
+  height: 100px;
+  background: #FFFFFF no-repeat padding-box;
+  box-shadow: 0 3px 6px #00000052;
+  font: Bold 88px Bebas Neue;
+  color: #062639;
+}
+
+#foto_form #foto_price sup {
+  padding: 0 10px 0 10px;
+  font: 700 31px Raleway;
+}
+
+#foto_form #foto_price span {
+  display: block;
+  float: right;
+  margin: 33px 0 0 0;
+  font: Bold 24px/29px Bebas Neue;
+  color: #06263998;
+  transform: rotate(270deg);
+}
+
+#left_container #foto_stars {
+  margin-left: -50px;
+  width: 420px;
+  height: 30px;
+  background-color: #EA2340;
+  clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+  text-align: right;
+  padding: 0 75px 10px 0;
+}
+
+#foto_stars #stars {
+  font-size: 25px;
+  color: #FFFFFF;
+}
+
+#foto_stars #trips {
+  margin-left: 20px;
+  font: 400 13px/24px Raleway;
+  color: #FFFFFF;
+}
+
+#car_info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 90px;
+  width: 90%;
+}
+
+#car_info div{
+  font: 400 16px/24px Raleway;
+  padding: 0 0 40px 50px;
+}
+
+.box_name{
+  text-align: right;
+  padding-right: 20px;
+  color: #06263998;
+}
+
+#car_info #general{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#car_info #location, #features{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+#car_info #about{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+#feedback{
+  margin: 0 0 0 10vw;
+}
+
+
+/*Block right side with search form ang Google Maps*/
+
+#right_container agm-map{
+  margin-bottom: 450px;
+  width: 680px;
+  height: 530px;
+  box-shadow: 0 3px 6px #0000005F;
+}
+
+#search_form {
+  height: 590px;
+  background: #FFFFFF no-repeat padding-box;
+  box-shadow: 0 3px 6px #0000005F;
+  padding: 0 0 0 50px;
+}
+
+#search_form #rw_1 {
+  display: block;
+  width: 220px;
+  height: 70px;
+  font: 900 32px Raleway;
+  color: #EA2340;
+  padding: 50px 0 0 20px;
+}
+
+#search_form li {
+  margin: 20px;
+}
+
+#search_form ul input {
+  box-sizing: border-box;
+  width: 371px;
+  height: 46px;
+  border: 1px solid #5F727E;
+  padding: 20px 0 0 2px;
+  font: 400 13px/24px Raleway;
+  color: #06263998;
+}
+
+#search_form button {
+  width: 170px;
+  height: 45px;
+  background-color: #EA2340;
+  font: 700 18px Raleway;
+  color: white;
+  cursor: pointer;
+  margin-left: 20px;
+}

@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import "http://fonts.fontstorage.com/import/bebasneue.css";
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i,900,900i&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+  text-decoration: none;
+}
+
+body{
+  width: 1903px;
+}

@@ -1,0 +1,107 @@
+/*Styles for blocks with TOP 3 cars*/
+
+.pop_cars {
+  float: left;
+  width: 100%;
+  height: 800px;
+  text-align: left;
+  position: relative;
+  top: 100px;
+  overflow: hidden;
+}
+
+.pop_cars #pop_info1 {
+  width: 8%;
+  float: left;
+  text-align: right;
+  font: 700 149px/149px Bebas Neue;
+  letter-spacing: 0;
+  color: #EA2340;
+  text-transform: capitalize;
+}
+
+.pop_cars #pop_info3 {
+  width: 366px;
+  height: 109px;
+  float: left;
+  font: 700 54px/54px Bebas Neue;
+  letter-spacing: 0;
+  color: #062639;
+  text-transform: capitalize;
+  opacity: 1;
+  margin-top: 15px;
+  margin-bottom: 88px;
+}
+
+.pop_cars #pop_info2 {
+  width: 35%;
+  float: right;
+  font: 400 16px/24px Raleway;
+  letter-spacing: 0;
+  color: #062639;
+  opacity: 1;
+  margin-top: 15px;
+  margin-right: 150px;
+}
+
+#cars_3 {
+  width: 100%;
+  height: 550px;
+  background: #062639 0% 0% no-repeat padding-box;
+  float: left;
+}
+
+#cars_3 #l3 {
+  display: flex;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(135deg, transparent 0, #EA2340 0) top left no-repeat,
+  linear-gradient(-135deg, transparent 70px, #EA2340 0) top right no-repeat,
+  linear-gradient(45deg, transparent 70px, #EA2340 0) bottom left no-repeat,
+  linear-gradient(-45deg, transparent 0, #EA2340 0) bottom right no-repeat;
+  background-size: 51% 50%;
+}
+
+#cars_3 #l3 div {
+  margin-right: -200px;
+  margin-left: -215px;
+  margin-top: 20px;
+}
+
+#cars_3 #l3 .car_name {
+  position: relative;
+  left: 39%;
+  bottom: 5%;
+  font: Bold 32px/38px Bebas Neue;
+  color: white;
+}
+
+#cars_3 #l3 .top_price {
+  width: 175px;
+  height: 95px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000052;
+  text-align: left;
+  font: Bold 88px Bebas Neue;
+  letter-spacing: 0;
+  color: #EA2340;
+  position: relative;
+  left: 59%;
+  bottom: 5%;
+  padding-left: 5px;
+}
+
+#cars_3 #l3 .top_price sup {
+  font: Bold 31px Raleway;
+}
+
+#cars_3 #l3 .top_price span {
+  float: right;
+  display: block;
+  font: Bold 24px/29px Bebas Neue;
+  color: #06263998;
+  width: 80px;
+  transform: rotate(270deg);
+  margin-top: -80px;
+  margin-right: -10px;
+}

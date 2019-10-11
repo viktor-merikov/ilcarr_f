@@ -1,0 +1,160 @@
+/*Styles for block with main serch content*/
+
+#search {
+  width: 100%;
+  height: 766px;
+  overflow: hidden;
+  background-image: url("src/assets/742079-PSISLA-798.png");
+}
+
+#search_form {
+  margin: 140px 0 0 0;
+  padding: 30px 0 0 180px;
+  width:420px;
+  height: 350px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #0000005F;
+}
+
+#search_form form{
+  margin-left: -20px;
+}
+
+#search_form #rw_1 {
+  font: 900 32px Raleway;
+  letter-spacing: 0;
+  color: #EA2340;
+}
+
+#search_form #rw_2 {
+  font: lighter 16px Raleway;
+  color: #06263998;
+}
+
+#search_form li {
+  margin: 10px 0 10px 20px;
+}
+
+#search_form ul input {
+  box-sizing: border-box;
+  width: 370px;
+  height: 45px;
+  border: 1px solid #5F727E;
+  padding: 20px 0 0px 5px;
+  font: normal 13px/24px Raleway;
+  color: #06263998;
+}
+
+#search_form button {
+  border: 0;
+  margin: 40px 0 0 20px;
+  padding-bottom: 40px;
+  width: 190px;
+  height: 90px;
+  background-color: #EA2340;
+  font: 700 18px Raleway;
+  color: white;
+  cursor: pointer;
+}
+
+#search_form button:hover {
+  box-shadow: 0 2px 2px #062639;
+}
+
+/*Style for blocks with information under registration form*/
+
+.join_box {
+  width: 100%;
+  height: 270px;
+  background-color: #062639;
+  float: left;
+  overflow: hidden;
+}
+
+.join_box #l2 {
+  margin-top: 1%;
+  width: 1650px;
+  border-bottom: 24px solid #EA2340;
+  border-right: 45px solid transparent;
+}
+
+#join_info {
+  position: relative;
+  top: 70px;
+}
+
+#join_info #info_1 pre {
+  float: left;
+  width: 25%;
+  color: white;
+  font: Bold 54px/54px Bebas Neue;
+  text-align: left;
+  padding-left: 50px;
+}
+
+#join_info #info_2 {
+  position: relative;
+  float: left;
+  width: 35%;
+  color: white;
+  font: normal 16px/24px Raleway;
+  top: 10px;
+  padding-right: 100px;
+}
+
+#join_info #info_button {
+  float: left;
+  width: 25%;
+}
+
+#join_info #info_button pre {
+  font: 900 32px Raleway;
+  color: #EA2340;
+}
+
+#join_info #info_button button {
+  border: 0;
+  width: 146px;
+  height: 48px;
+  position: relative;
+  left: 55px;
+  bottom: 20px;
+  font: 700 18px Raleway;
+  padding: 5px;
+  color: white;
+  background: #EA2340 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000052;
+  cursor: pointer;
+}
+
+
+/*Styles for blocks with feedback's*/
+
+.feed_main {
+  margin-top: 180px;
+  float: left;
+  width: 100%;
+  height: 650px;
+  background-color: white;
+  overflow: hidden;
+}
+
+.feed_main #feed_head {
+  margin-left: 270px;
+  width: 100%;
+  height: 150px;
+  font: Bold 54px/54px Bebas Neue;
+  color: #062639;
+}
+
+.feed_main #feed_head #feed_head_text {
+  width: 366px;
+  height: 109px;
+}
+
+.feeds_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 100px 0 100px;
+}

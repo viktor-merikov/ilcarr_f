@@ -1,0 +1,44 @@
+.car_card img{
+  width: 520px;
+}
+
+.name_car p {
+  font: Bold 32px/38px Bebas Neue;
+  color: #062639;
+  float: left;
+}
+
+.name_car p span {
+  font: Bold 24px/29px Bebas Neue;
+  color: #06263998;
+  padding-left: 5px;
+}
+
+.foto_price {
+  position: relative;
+  box-sizing: content-box;
+  width: 130px;
+  height: 60px;
+  background: #FFFFFF no-repeat padding-box;
+  box-shadow: 0 3px 6px #00000052;
+  font: Bold 59px/71px Bebas Neue;
+  color: #062639;
+  padding-left: 10px;
+  margin: -25px 40px 0 0;
+  float: right;
+}
+
+.foto_price sup {
+  font: 700 18px Raleway;
+  padding-right: 5px;
+}
+
+.foto_price span {
+  display: block;
+  width: 60px;
+  float: right;
+  margin-top: -60px;
+  font: Bold 16px/19px Bebas Neue;
+  color: #06263998;
+  transform: rotate(270deg);
+}

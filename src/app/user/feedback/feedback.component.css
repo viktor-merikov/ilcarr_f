@@ -1,0 +1,30 @@
+.feed_user {
+  padding: 25px 25px 25px 25px;
+}
+
+.feed_user img {
+  border-radius: 90px;
+  float: left;
+  margin-right: 10px;
+}
+
+.feed_user .feed_text {
+  display: block;
+  width: 520px;
+  height: 50px;
+  font: 400 16px/24px Raleway;
+}
+
+.feed_user .name_user {
+  font: Bold 16px/24px Raleway;
+  color: #EA2340;
+  padding-top: 20px;
+  padding-right: 50px;
+  float: left;
+}
+
+.feed_user .feed_date {
+  margin-top: 20px;
+  color: #06263998;
+  font: 400 13px/24px Raleway;
+}

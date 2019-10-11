@@ -1,0 +1,115 @@
+<!--////////////////////////////////////////////Block with search filters and cars list///////////////////////////////////////////////////////-->
+<div id="main_container">
+
+  <div id="left_container">
+
+    <!--    This block activate search with price range, hide map and filters-->
+    <div *ngIf="searchActive">
+      <button class="active_button" style="background-color: #EA2340;">
+        <i class="fal fa-search"></i>
+        Search
+      </button>
+      <button class="non_act_but_1" (click)="filtersIsActive()" style="background: #062639;">
+        <i class="fal fa-sliders-h"></i>
+      </button>
+      <button class="non_act_but_2" (click)="mapIsActive()" style="background: #6C7E8B;">
+        <i class="fal fa-map-marker-alt"></i>
+      </button>
+      <div class="line_button" style="background-color: #EA2340;"></div>
+    </div>
+
+    <!--    This block activate filters, hide map and search with price range-->
+    <div *ngIf="filtersActive">
+      <button class="active_button" style="background: #062639;">
+        <i class="fal fa-sliders-h"></i>
+        Filters
+      </button>
+      <button class="non_act_but_1" (click)="mapIsActive()" style="background: #6C7E8B;">
+        <i class="fal fa-map-marker-alt"></i>
+      </button>
+      <button class="non_act_but_2" (click)="searchIsActive()" style="background-color: #EA2340;">
+        <i class="fal fa-search"></i>
+      </button>
+      <div class="line_button" style="background: #062639;"></div>
+    </div>
+
+    <!--    This block activate map, hide search with price range and filters-->
+    <div *ngIf="mapActive">
+      <button class="active_button" style="background: #6C7E8B;">
+        <i class="fal fa-map-marker-alt"></i>
+        Map
+      </button>
+      <button class="non_act_but_1" (click)="filtersIsActive()" style="background: #062639;">
+        <i class="fal fa-sliders-h"></i>
+      </button>
+      <button class="non_act_but_2" (click)="searchIsActive()" style="background-color: #EA2340;">
+        <i class="fal fa-search"></i>
+      </button>
+      <div class="line_button" style="background: #6C7E8B;"></div>
+    </div>
+
+
+    <!-- ////////Block with form location, dates rent car and sorting of price-->
+    <div id="search_form" *ngIf="searchActive">
+      <p id="rw_1">Find your car now!</p>
+      <form>
+        <ul>
+          <li><input type="text" placeholder="Location"></li>
+          <li><input type="text" placeholder="From"></li>
+          <li><input type="text" placeholder="Till"></li>
+        </ul>
+      </form>
+      <br><br>
+      <span>Sort by:</span>
+      <br>
+      <div id="price_filter">
+        <button id="price_high">Price (low to high)</button>
+        <button id="price_low">Price (high to low)</button>
+      </div>
+      <br><br><br><br>
+      <div id="range">
+        <span>Price range ($/per day):</span>
+        <span id="num_price_range">{{priceRange}}</span>
+        <br><br>
+        <input id="price_range" type="range" min="20" max="500" step="5" [(ngModel)]="priceRange">
+      </div>
+    </div>
+
+    <!--    Block with search filters for filtering cars -->
+    <div id="filters_form" *ngIf="filtersActive">
+      <p id="rw_filters">Find your car now!</p>
+      <form>
+        <ul>
+          <li><input type="text" placeholder="Make"></li>
+          <li><input type="text" placeholder="Model"></li>
+          <li><input type="text" placeholder="Year"></li>
+          <li><input type="text" placeholder="Engine"></li>
+          <li><input type="text" placeholder="Fuel"></li>
+          <li><input type="text" placeholder="Transmission"></li>
+          <li><input type="text" placeholder="WD"></li>
+          <li><input type="text" placeholder="Horsepower"></li>
+          <li><input type="text" placeholder="Fuel consumption"></li>
+        </ul>
+      </form>
+    </div>
+
+    <!--  ///////////////////////  Block for Google Map with car's marker-->
+    <agm-map *ngIf="mapActive" [latitude]="latitude" [longitude]="longitude" [zoom]="11" icon="map">
+      <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+      <agm-marker [latitude]="latitude - 0.025" [longitude]="longitude + 0.027"></agm-marker>
+      <agm-marker [latitude]="latitude - 0.022" [longitude]="longitude - 0.007"></agm-marker>
+    </agm-map>
+
+  </div>
+
+  <!-- Cars list -->
+  <div id="right_container">
+    <app-car-card></app-car-card>
+    <app-car-card></app-car-card>
+    <app-car-card></app-car-card>
+    <app-car-card></app-car-card>
+    <app-car-card></app-car-card>
+    <app-car-card></app-car-card>
+  </div>
+
+</div>

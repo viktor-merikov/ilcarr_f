@@ -1,0 +1,177 @@
+/*Styles for registration block*/
+
+.reg_side {
+  width: 100%;
+  height: 766px;
+  overflow: hidden;
+}
+
+#reg_left {
+  width: 67%;
+  height: 100%;
+  background: url("src/assets/742079-PSISLA-798.png") -630px no-repeat;
+  float: left;
+}
+
+#reg_right {
+  float: right;
+  width: 33%;
+  height: 100%;
+  box-shadow: 0px 3px 6px #0000005F;
+}
+
+#reg_form {
+  width: 80%;
+  padding-left: 15%;
+  padding-top: 10%;
+}
+
+#reg_form li {
+  margin: 20px;
+}
+
+#reg_form ul input {
+  box-sizing: border-box;
+  width: 370px;
+  height: 45px;
+  border: 1px solid darkgray;
+  text-align: left;
+  padding: 20px 0 0 2px;
+  font: normal 13px/24px Raleway;
+  letter-spacing: 0;
+  color: #06263998;
+}
+
+#reg_form #rw_1 {
+  font: 900 32px Raleway;
+  letter-spacing: 0;
+  color: #EA2340;
+  padding-left: 4%;
+}
+
+#reg_form #rw_2 {
+  font: lighter 16px Raleway;
+  color: #06263998;
+  padding-left: 4%;
+}
+
+form #reg_check {
+  padding: 0 0 0 20px;
+  font: 400 13px/24px Raleway;
+  color: #06263998;
+}
+
+#reg_form button {
+  margin-left: 4%;
+  width: 190px;
+  height: 50px;
+  background-color: #EA2340;
+  box-shadow: 0px 3px 6px #00000052;
+  font: bold 18px Raleway;
+  color: white;
+}
+
+.reg_side #l1 {
+  margin-top: 22.1%;
+  margin-left: 4%;
+  width: 50px;
+  border-bottom: 10px solid #EA2340;
+  border-right: 20px solid transparent;
+}
+
+/*Style for blocks with information under registration form*/
+
+.join_box {
+  width: 100%;
+  height: 270px;
+  background-color: #062639;
+  float: left;
+  overflow: hidden;
+}
+
+.join_box #l2 {
+  margin-top: 1%;
+  width: 1650px;
+  border-bottom: 24px solid #EA2340;
+  border-right: 45px solid transparent;
+}
+
+#join_info {
+  position: relative;
+  top: 70px;
+}
+
+#join_info #info_1 pre {
+  float: left;
+  width: 25%;
+  color: white;
+  font: Bold 54px/54px Bebas Neue;
+  text-align: left;
+  padding-left: 50px;
+}
+
+#join_info #info_2 {
+  position: relative;
+  float: left;
+  width: 35%;
+  color: white;
+  font: normal 16px/24px Raleway;
+  top: 10px;
+  padding-right: 100px;
+}
+
+#join_info #info_button {
+  float: left;
+  width: 25%;
+}
+
+#join_info #info_button pre {
+  font: 900 32px Raleway;
+  color: #EA2340;
+}
+
+#join_info #info_button button {
+  border: 0;
+  width: 146px;
+  height: 48px;
+  position: relative;
+  left: 55px;
+  bottom: 20px;
+  font: 700 18px Raleway;
+  padding: 5px;
+  color: white;
+  background: #EA2340 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000052;
+  cursor: pointer;
+}
+
+/*Styles for blocks with feedback's*/
+
+.feed_main {
+  margin-top: 180px;
+  float: left;
+  width: 100%;
+  height: 650px;
+  background-color: white;
+  overflow: hidden;
+}
+
+.feed_main #feed_head {
+  margin-left: 270px;
+  width: 100%;
+  height: 150px;
+  font: Bold 54px/54px Bebas Neue;
+  color: #062639;
+}
+
+.feed_main #feed_head #feed_head_text {
+  width: 366px;
+  height: 109px;
+}
+
+.feeds_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 100px 0 100px;
+}
