@@ -9,10 +9,10 @@
         <i class="fal fa-search"></i>
         Search
       </button>
-      <button class="non_act_but_1" (click)="filtersIsActive()" style="background: #062639;">
+      <button class="non_act_but_1" (click)="wwIsActive('filters')" style="background: #062639;">
         <i class="fal fa-sliders-h"></i>
       </button>
-      <button class="non_act_but_2" (click)="mapIsActive()" style="background: #6C7E8B;">
+      <button class="non_act_but_2" (click)="wwIsActive('map')" style="background: #6C7E8B;">
         <i class="fal fa-map-marker-alt"></i>
       </button>
       <div class="line_button" style="background-color: #EA2340;"></div>
@@ -24,10 +24,10 @@
         <i class="fal fa-sliders-h"></i>
         Filters
       </button>
-      <button class="non_act_but_1" (click)="mapIsActive()" style="background: #6C7E8B;">
+      <button class="non_act_but_1" (click)="wwIsActive('map')" style="background: #6C7E8B;">
         <i class="fal fa-map-marker-alt"></i>
       </button>
-      <button class="non_act_but_2" (click)="searchIsActive()" style="background-color: #EA2340;">
+      <button class="non_act_but_2" (click)="wwIsActive('search')" style="background-color: #EA2340;">
         <i class="fal fa-search"></i>
       </button>
       <div class="line_button" style="background: #062639;"></div>
@@ -39,10 +39,10 @@
         <i class="fal fa-map-marker-alt"></i>
         Map
       </button>
-      <button class="non_act_but_1" (click)="filtersIsActive()" style="background: #062639;">
+      <button class="non_act_but_1" (click)="wwIsActive('filters')" style="background: #062639;">
         <i class="fal fa-sliders-h"></i>
       </button>
-      <button class="non_act_but_2" (click)="searchIsActive()" style="background-color: #EA2340;">
+      <button class="non_act_but_2" (click)="wwIsActive('search')" style="background-color: #EA2340;">
         <i class="fal fa-search"></i>
       </button>
       <div class="line_button" style="background: #6C7E8B;"></div>
@@ -94,10 +94,10 @@
     </div>
 
     <!--  ///////////////////////  Block for Google Map with car's marker-->
-    <agm-map *ngIf="mapActive" [latitude]="latitude" [longitude]="longitude" [zoom]="11" icon="map">
-      <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-      <agm-marker [latitude]="latitude - 0.025" [longitude]="longitude + 0.027"></agm-marker>
-      <agm-marker [latitude]="latitude - 0.022" [longitude]="longitude - 0.007"></agm-marker>
+    <agm-map *ngIf="mapActive" [latitude]="carPoint.latitude" [longitude]="carPoint.longitude" [zoom]="11" icon="map">
+      <agm-marker [latitude]="carPoint.latitude" [longitude]="carPoint.longitude"></agm-marker>
+      <agm-marker [latitude]="carPoint.latitude - 0.025" [longitude]="carPoint.longitude + 0.027"></agm-marker>
+      <agm-marker [latitude]="carPoint.latitude - 0.022" [longitude]="carPoint.longitude - 0.007"></agm-marker>
     </agm-map>
 
   </div>
