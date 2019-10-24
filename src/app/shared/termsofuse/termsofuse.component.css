@@ -1,0 +1,15 @@
+h1 {
+  font: 900 36px/60px Raleway;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+p {
+  position: relative;
+  color: #062639;
+  margin: 40px;
+  padding: 10px;
+  font: normal 16px Arial;
+  border: 3px double #062639;
+  box-shadow: 3px 5px 5px silver;
+}

@@ -1,9 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-
-export interface CarCoord {
-  latitude: number;
-  longitude: number;
-}
+import {CarCoord} from '../cars_abstract';
 
 
 @Component({
@@ -17,7 +13,7 @@ export class SearchComponent implements OnInit {
   mapActive = false;
   searchActive = true;
   filtersActive = false;
-  carPoint: CarCoord = {latitude: 32.2970637, longitude: 34.85437006};
+  carPoint: CarCoord = {latitude: 32.2970637, longitude: 34.85437006}; // Israel coordinates
 
   constructor() {
   }
@@ -25,7 +21,7 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  // What window is active
+  // Which window is active
   private wwIsActive(window: string) {
     if (window === 'filters') {
       this.mapActive = false;
@@ -40,6 +36,10 @@ export class SearchComponent implements OnInit {
       this.searchActive = true;
       this.filtersActive = false;
     }
+  }
+
+  onSliderChange(selectedNumbers: number[]) {
+    console.log(selectedNumbers);
   }
 }
 

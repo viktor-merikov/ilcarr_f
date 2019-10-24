@@ -4,7 +4,15 @@
 
 export const environment = {
   production: false,
-  googleMapApiKey: 'AIzaSyCQznA3HE-nH2KYrWYsuviraVXQ720oGOs'
+  googleMapApiKey: 'AIzaSyCQznA3HE-nH2KYrWYsuviraVXQ720oGOs',
+  serverURL: 'https://rent-cars-app.herokuapp.com',
+  cloudDinary: {
+    cloudinary_URL: 'https://api.cloudinary.com/v1_1/dp0hedrt6',
+    cloud_name: 'dp0hedrt6',
+    API_key: '136628143661525',
+    API_secret: 'PGvYkeity_SW2W_a2fok7owcUuU',
+    upload_preset: 'o90irmgy'
+  }
 };
 
 /*

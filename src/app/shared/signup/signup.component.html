@@ -6,19 +6,43 @@
     <div id="reg_form">
       <p id="rw_1">Registration</p>
       <p id="rw_2">Type your data and hit Yalla!</p>
-      <form>
-        <ul>
-          <li><input type="text" placeholder="Name"></li>
-          <li><input type="text" placeholder="Last Name"></li>
-          <li><input type="email" placeholder="Email"></li>
-          <li><input type="password" placeholder="Password"></li>
-        </ul>
+
+      <form #form="ngForm" (ngSubmit)="registrationUser(form)">
+        <li>
+          <input type="text" placeholder="Name" name="firstName" #firstName="ngModel" ngModel required
+                 pattern="[a-zA-Z]+"><br>
+          <span *ngIf="firstName.errors?.pattern" class="invalid">Incorrect first name</span>
+        </li>
+
+        <li><input type="text" placeholder="Last Name" name="lastName" #lastName="ngModel" ngModel required
+                   pattern="[a-zA-Z]+"><br>
+          <span *ngIf="lastName.errors?.pattern" class="invalid">Incorrect last name</span>
+        </li>
+
+        <li><input type="email" placeholder="Email" name="email" #email="ngModel" ngModel required email><br>
+          <span *ngIf="email.errors?.email" class="invalid">Incorrect email</span>
+        </li>
+
+        <li><input type="password" placeholder="Password" name="password" #password="ngModel" ngModel required
+                   pattern="((?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,12})"><br>
+          <span *ngIf="password.errors?.pattern" class="invalid">
+            Password must contain lowercase, uppercase letters and digit
+          </span>
+        </li>
         <br><br>
-        <p id="reg_check"><input type="checkbox"> I agree to the <a href="#">terms of use </a>and <a href="">privacy
-          policy</a>. </p>
-        <br><br><br><br>
-        <button type="button">Y'alla!</button>
+        <p id="reg_check"><input type="checkbox" #check="ngModel" ngModel [ngModelOptions]="{standalone: true}"
+                                 required>
+          I agree to the <a href="#">terms of use </a>and <a href="#">privacy policy</a>.
+        </p>
+        <br>
+        <div id="reqMessage" *ngIf="reqMessage">{{reqMessage}}</div>
+        <br><br><br>
+        <button type="submit"
+                [disabled]="form.invalid || check.invalid">
+          Y'alla!
+        </button>
       </form>
+
     </div>
     <div id="l1"></div>
   </div>

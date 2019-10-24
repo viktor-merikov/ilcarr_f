@@ -1,29 +1,20 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {NavHeaderFooterComponent} from './nav-header-footer/nav-header-footer.component';
-import {RouterModule, Routes} from '@angular/router';
+import {RouterModule} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {MainComponent} from './main/main.component';
-import {SearchComponent} from '../cars/search/search.component';
-import {ViewComponent} from '../cars/view/view.component';
-import {UploadComponent} from '../cars/upload/upload.component';
-import { SignupComponent } from './signup/signup.component';
+import {SignupComponent} from './signup/signup.component';
 import {CarsModule} from '../cars/cars.module';
 import {UserModule} from '../user/user.module';
-
-const routes: Routes = [
-  {path: 'signup', component: SignupComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'main', component: MainComponent},
-  {path: 'car/search', component: SearchComponent},
-  {path: 'car/view', component: ViewComponent},
-  {path: 'car/upload', component: UploadComponent},
-  {path: '', redirectTo: 'main', pathMatch: 'full'}
-];
-
+import {TermsofuseComponent} from './termsofuse/termsofuse.component';
+import {FormsModule} from '@angular/forms';
+import {routes} from './routes';
+import {UserServiceAbstract} from '../user/user_abstract';
+import {UserService} from '../user/user.service';
 
 @NgModule({
-  declarations: [NavHeaderFooterComponent, LoginComponent, MainComponent, SignupComponent],
+  declarations: [NavHeaderFooterComponent, LoginComponent, MainComponent, SignupComponent, TermsofuseComponent],
   exports: [
     NavHeaderFooterComponent
   ],
@@ -31,7 +22,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forRoot(routes),
     CarsModule,
-    UserModule
+    UserModule,
+    FormsModule
   ]
 })
 export class SharedModule {

@@ -20,6 +20,39 @@
   box-shadow: 0px 3px 6px #0000005F;
 }
 
+/*Card after login*/
+#user_logged{
+  float: right;
+  width: 33%;
+  height: 100%;
+  box-shadow: 0 3px 6px #0000005F;
+  text-align: center;
+  vertical-align: center;
+}
+
+#user_logged h2{
+  font: 900 32px Raleway;
+  color: #EA2340;
+  padding: 20px;
+}
+
+#user_logged span{
+  font: 400 20px/25px Raleway;
+  color: #062639;
+  padding: 10px;
+}
+
+#user_logged button{
+  margin: 20px 0 20px 4%;
+  width: 190px;
+  height: 50px;
+  background-color: #EA2340;
+  box-shadow: 0px 3px 6px #00000052;
+  font: bold 18px Raleway;
+  color: white;
+}
+
+/*logIn form*/
 #reg_form {
   width: 80%;
   padding-left: 15%;
@@ -27,24 +60,21 @@
 }
 
 #reg_form li {
-  margin: 20px;
+  margin: 20px 0 30px 20px;
 }
 
-#reg_form ul input {
+#reg_form li input {
   box-sizing: border-box;
   width: 370px;
   height: 45px;
   border: 1px solid darkgray;
-  text-align: left;
   padding: 20px 0 0 2px;
-  font: normal 13px/24px Raleway;
-  letter-spacing: 0;
+  font: 400 13px/24px Raleway;
   color: #06263998;
 }
 
 #reg_form #rw_1 {
   font: 900 32px Raleway;
-  letter-spacing: 0;
   color: #EA2340;
   padding-left: 4%;
 }
@@ -71,8 +101,12 @@
   color: white;
 }
 
+#reg_form button:disabled{
+  background-color: silver;
+}
+
 .reg_side #l1 {
-  margin-top: 20%;
+  margin-top: 105px;
   margin-left: 4%;
   width: 50px;
   border-bottom: 10px solid #EA2340;

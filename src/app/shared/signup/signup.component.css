@@ -27,30 +27,31 @@
 }
 
 #reg_form li {
-  margin: 20px;
+  margin: 20px 0 30px 20px;
 }
 
-#reg_form ul input {
+#reg_form li input {
   box-sizing: border-box;
   width: 370px;
   height: 45px;
   border: 1px solid darkgray;
-  text-align: left;
   padding: 20px 0 0 2px;
-  font: normal 13px/24px Raleway;
-  letter-spacing: 0;
+  font: 400 13px/24px Raleway;
   color: #06263998;
+}
+
+#reg_form li input.ng-dirty.ng-invalid{
+  border-color: red;
 }
 
 #reg_form #rw_1 {
   font: 900 32px Raleway;
-  letter-spacing: 0;
   color: #EA2340;
   padding-left: 4%;
 }
 
 #reg_form #rw_2 {
-  font: lighter 16px Raleway;
+  font: 400 16px Raleway;
   color: #06263998;
   padding-left: 4%;
 }
@@ -61,18 +62,32 @@ form #reg_check {
   color: #06263998;
 }
 
+#reg_form #reqMessage{
+  position: absolute;
+  width: 300px;
+  color: #3d6bff;
+  letter-spacing: 1px;
+  font: 700 18px/25px Raleway;
+  padding: 10px;
+  text-align: center;
+}
+
 #reg_form button {
   margin-left: 4%;
   width: 190px;
   height: 50px;
   background-color: #EA2340;
   box-shadow: 0px 3px 6px #00000052;
-  font: bold 18px Raleway;
+  font: 700 18px Raleway;
   color: white;
 }
 
+#reg_form button:disabled{
+  background-color: silver;
+}
+
 .reg_side #l1 {
-  margin-top: 22.1%;
+  margin-top: 99px;
   margin-left: 4%;
   width: 50px;
   border-bottom: 10px solid #EA2340;

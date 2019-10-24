@@ -3,24 +3,35 @@ import {CommonModule} from '@angular/common';
 import {SearchComponent} from './search/search.component';
 import {ViewComponent} from './view/view.component';
 import {UploadComponent} from './upload/upload.component';
-import {FiltersComponent} from './filters/filters.component';
-import {MapComponent} from './map/map.component';
 import {TopThreeCarsComponent} from './top-three-cars/top-three-cars.component';
 import {UserModule} from '../user/user.module';
 import {AgmCoreModule} from '@agm/core';
 import {environment} from '../../environments/environment';
 import {FormsModule} from '@angular/forms';
-import { CarCardComponent } from './car-card/car-card.component';
+import {CarCardComponent} from './car-card/car-card.component';
+import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
+import {RouterModule, Routes} from '@angular/router';
+import {NpnSliderModule} from 'npn-slider';
+import {CloudinaryModule} from '@cloudinary/angular-5.x';
+import * as Cloudinary from 'cloudinary-core';
+
+const routes: Routes = [
+  {path: 'view', component: ViewComponent}
+];
 
 @NgModule({
-  declarations: [SearchComponent, ViewComponent, UploadComponent, FiltersComponent, MapComponent, TopThreeCarsComponent, CarCardComponent],
+  declarations: [SearchComponent, ViewComponent, UploadComponent, TopThreeCarsComponent, CarCardComponent],
   imports: [
     CommonModule,
     UserModule,
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapApiKey
     }),
-    FormsModule
+    FormsModule,
+    GooglePlaceModule,
+    RouterModule.forRoot(routes),
+    NpnSliderModule,
+    CloudinaryModule.forRoot(Cloudinary, {cloud_name: environment.cloudDinary.cloud_name})
   ],
   exports: [
     SearchComponent,

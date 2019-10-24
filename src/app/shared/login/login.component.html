@@ -2,20 +2,38 @@
 <div class="reg_side">
   <div id="reg_left"></div>
 
-  <div id="reg_right">
+  <div id="user_logged" *ngIf="loggedUser">
+    <div>
+      <h2>Welcome to ilCarr</h2>
+      <span>{{loggedUser.first_name}} {{loggedUser.second_name}}</span>
+    </div>
+    <br><br><br><br>
+    <button>My rented history</button>
+    <button>My cars</button>
+    <button>Edit user</button>
+    <button (click)="deleteUser()">Delete user</button>
+    <button (click)="logout()">Log out</button>
+  </div>
+
+  <div id="reg_right" *ngIf="!loggedUser">
     <div id="reg_form">
       <div>
         <p id="rw_1">Log in</p>
         <p id="rw_2">Type your data and hit Yalla!</p>
       </div>
-      <form>
-        <ul>
-          <li><input type="email" placeholder="Email"></li>
-          <li><input type="password" placeholder="Password"></li>
-        </ul>
+
+      <form #form="ngForm" (ngSubmit)="logInUser(form)">
+        <li><input type="email" placeholder="Email" name="email" #email="ngModel" ngModel required email><br>
+          <span *ngIf="email.errors?.email" class="invalid">Incorrect email form</span>
+        </li>
+
+        <li><input type="password" placeholder="Password" name="password" #password="ngModel" ngModel required>
+          <br>
+        </li>
         <br>
-        <button type="button">Y'alla!</button>
+        <button type="submit" [disabled]="form.invalid">Y'alla!</button>
       </form>
+
       <p id="reg_check">Forgot your password? <a href="#">Click here. </a></p>
     </div>
     <div id="l1"></div>

@@ -32,7 +32,7 @@
   padding-right: 65px;
 }
 
-#left_container .active_button i{
+#left_container .active_button i {
   vertical-align: bottom;
   font-size: 30px;
   margin-right: 10px;
@@ -58,7 +58,7 @@
   padding: 0 0 0 130px;
 }
 
-#left_container agm-map{
+#left_container agm-map {
   height: 955px;
   box-shadow: 0 3px 6px #0000005F;
 }
@@ -159,6 +159,12 @@
   cursor: pointer;
 }
 
+npn-slider .bar{
+  height: 2px !important;
+  color: #062639;
+}
+
+
 #range #num_price_range {
   font: 700 24px Raleway;
   color: #062639;
@@ -195,7 +201,7 @@
   padding: 85px 75px 0 75px;
 }
 
-app-car-card {
+#right_container a {
   margin-bottom: 40px;
 }
 

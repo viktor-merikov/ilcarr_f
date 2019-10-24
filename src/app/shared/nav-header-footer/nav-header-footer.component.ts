@@ -13,7 +13,7 @@ export class NavHeaderFooterComponent implements OnInit {
   navLinks: NavLink[] = [
     {path: 'car/search', label: 'Search'},
     {path: 'car/upload', label: 'Let the car work'},
-    {path: 'car/view', label: 'Terms of use'},
+    {path: 'termsofuse', label: 'Terms of use'},
     {path: 'signup', label: 'Sign up'},
     {path: 'login', label: 'Log in'}
   ];

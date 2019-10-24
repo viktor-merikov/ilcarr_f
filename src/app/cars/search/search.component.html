@@ -71,7 +71,8 @@
         <span>Price range ($/per day):</span>
         <span id="num_price_range">{{priceRange}}</span>
         <br><br>
-        <input id="price_range" type="range" min="20" max="500" step="5" [(ngModel)]="priceRange">
+<!--        <input id="price_range" type="range" min="20" max="500" step="5" [(ngModel)]="priceRange">-->
+        <npn-slider [min]="50" [max]="500" [step]="10" (onChange)="onSliderChange($event)"></npn-slider>
       </div>
     </div>
 
@@ -104,12 +105,12 @@
 
   <!-- Cars list -->
   <div id="right_container">
-    <app-car-card></app-car-card>
-    <app-car-card></app-car-card>
-    <app-car-card></app-car-card>
-    <app-car-card></app-car-card>
-    <app-car-card></app-car-card>
-    <app-car-card></app-car-card>
+    <a routerLink="/view"><app-car-card></app-car-card></a>
+    <a routerLink="/view"><app-car-card></app-car-card></a>
+    <a routerLink="/view"><app-car-card></app-car-card></a>
+    <a routerLink="/view"><app-car-card></app-car-card></a>
+    <a routerLink="/view"><app-car-card></app-car-card></a>
+    <a routerLink="/view"><app-car-card></app-car-card></a>
   </div>
 
 </div>

@@ -6,8 +6,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
-  latitude = 32.2970637;
-  longitude = 34.85437006;
+  latitude = 34.852029119708504;
+  longitude = 32.32252211970851;
 
   constructor() {
   }

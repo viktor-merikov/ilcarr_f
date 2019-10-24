@@ -8,18 +8,23 @@
 
   <div>
     <p>Location:</p>
-    <li><input type="text" list="test" placeholder="Country"></li>
-    <li><input type="text" placeholder="Street"></li>
-    <li><input type="text" placeholder="City"></li>
-    <li><input type="text" list="test" placeholder="State/Region/Province"></li>
+    <li><input type="text" list="countries" placeholder="Country"></li>
+    <li><input type="text" placeholder="City" ngx-google-places-autocomplete [options]='options'></li>
+    <li><input type="text" placeholder="Street" ngx-google-places-autocomplete [options]='options'
+               (onAddressChange)="handleAddressChange($event)"></li>
+    <li><input type="text" placeholder="State/Region/Province"></li>
     <li><input type="text" placeholder="ZIP"></li>
   </div>
+
+  <datalist id="countries">
+    <option>Israel [IL]</option>
+  </datalist>
 
   <div>
     <p>Car details:</p>
     <li><input type="text" list="test" placeholder="Make"></li>
     <li><input type="text" list="test" placeholder="Model"></li>
-    <li><input type="text" list="test" placeholder="Year"></li>
+    <li><input type="text" list="years" placeholder="Year"></li>
     <li><input type="text" list="test" placeholder="Engine"></li>
     <li><input type="text" list="test" placeholder="Fuel"></li>
     <li><input type="text" list="test" placeholder="Transmission"></li>
@@ -32,9 +37,10 @@
     <li><input type="text" list="test" placeholder="Fuel consumption"></li>
   </div>
 
+
   <div>
     <p>About:</p>
-    <textarea maxlength="500" type="text" placeholder="About (max 500 chars)"></textarea>
+    <textarea maxlength="500" placeholder="About (max 500 chars)"></textarea>
   </div>
 
   <div>
@@ -56,3 +62,25 @@
   </datalist>
 
 </form>
+
+<div id="map_img">
+  <div id="map">
+    <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+      <agm-marker *ngIf="formattedAddress" [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    </agm-map>
+    <p>{{formattedAddress}}</p>
+  </div>
+
+  <div id="imgs">
+    <cl-image *ngFor="let img of uploadedImages" [public-id]="img.public_id">
+      <cl-transformation height="260" width="360" crop="scale">
+      </cl-transformation>
+    </cl-image>
+  </div>
+  <br><br>
+  <input id="choose_file" type="file" (change)="onFileSelected($event)"><br>
+  <button id="upload" type="button" (click)="onUploadFile()">Upload</button>
+</div>
+
+
+
