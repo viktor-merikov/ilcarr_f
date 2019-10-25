@@ -1,32 +1,44 @@
 <!--////////////////////////////////////////This block for main picture and login form///////////////////////////////////////////////////////////-->
 <div class="reg_side">
+  <!--  In left side background image-->
   <div id="reg_left"></div>
 
+  <!--  Block hidden when user not logged in-->
   <div id="user_logged" *ngIf="loggedUser">
     <div>
       <h2>Welcome to ilCarr</h2>
       <span>{{loggedUser.first_name}} {{loggedUser.second_name}}</span>
     </div>
     <br><br><br><br>
-    <button>My rented history</button>
-    <button>My cars</button>
-    <button>Edit user</button>
-    <button (click)="deleteUser()">Delete user</button>
-    <button (click)="logout()">Log out</button>
+
+    <app-modal-dialog
+      *ngIf="activateDialog"
+      [header]="'Delete account'"
+      [description]="'Do you want delete own account?'"
+      (isConfirmed)="closeModal($event)">
+    </app-modal-dialog>
+
+    <div id="cab_buttons" *ngIf="!activateDialog">
+      <button>My rented history</button>
+      <button>My cars</button>
+      <button>Edit account</button>
+      <button (click)="deleteUser()">Delete account</button>
+      <button (click)="logout()">Log out</button>
+    </div>
+
   </div>
 
+  <!--  Block hidden when user logged in-->
   <div id="reg_right" *ngIf="!loggedUser">
     <div id="reg_form">
       <div>
         <p id="rw_1">Log in</p>
         <p id="rw_2">Type your data and hit Yalla!</p>
       </div>
-
       <form #form="ngForm" (ngSubmit)="logInUser(form)">
         <li><input type="email" placeholder="Email" name="email" #email="ngModel" ngModel required email><br>
           <span *ngIf="email.errors?.email" class="invalid">Incorrect email form</span>
         </li>
-
         <li><input type="password" placeholder="Password" name="password" #password="ngModel" ngModel required>
           <br>
         </li>
@@ -38,6 +50,7 @@
     </div>
     <div id="l1"></div>
   </div>
+
 </div>
 
 <!--///////////////////////////////////////////This block is our information with Join Now button////////////////////////////////////////////////////////-->
@@ -59,7 +72,7 @@
         Affordable prices
         Guaranteed cars
       </pre>
-      <button>Join now!</button>
+      <button routerLink="/signup">Join now!</button>
     </div>
   </div>
 </div>
@@ -69,7 +82,6 @@
 
 <!--////////////////////////////////////// This block is our Latest feedback from costumers/////////////////////////////////////////////////////////////-->
 <div class="feed_main">
-
   <div id="feed_head">
     <div id="feed_head_text">
       Latest FEEDBACKS fROM our customers

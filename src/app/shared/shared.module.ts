@@ -10,11 +10,10 @@ import {UserModule} from '../user/user.module';
 import {TermsofuseComponent} from './termsofuse/termsofuse.component';
 import {FormsModule} from '@angular/forms';
 import {routes} from './routes';
-import {UserServiceAbstract} from '../user/user_abstract';
-import {UserService} from '../user/user.service';
+import {ModalDialogComponent} from './modal-dialog/modal-dialog.component';
 
 @NgModule({
-  declarations: [NavHeaderFooterComponent, LoginComponent, MainComponent, SignupComponent, TermsofuseComponent],
+  declarations: [NavHeaderFooterComponent, LoginComponent, MainComponent, SignupComponent, TermsofuseComponent, ModalDialogComponent],
   exports: [
     NavHeaderFooterComponent
   ],

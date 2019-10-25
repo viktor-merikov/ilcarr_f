@@ -7,8 +7,10 @@ import {User, UserServiceAbstract} from '../../user/user_abstract';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
-  loggedUser: User;
+  private loggedUser: User;
+  private activateDialog = false;
 
   constructor(private userService: UserServiceAbstract) {
   }
@@ -34,11 +36,24 @@ export class LoginComponent implements OnInit {
   }
 
   deleteUser() {
+    this.activateDialog = true;
+  }
+
+  closeModal(event) {
+    if (event) {
+      this.logout();
+      this.deleteAccount();
+    }
+    this.activateDialog = false;
+  }
+
+  deleteAccount() {
     // TODO
-    this.userService.deleteUser(this.loggedUser.email, this.loggedUser.password).then(() => {
-        localStorage.removeItem('activeAppUser');
-        this.loggedUser = undefined;
-      }
-    ).catch(err => alert(err.code + ':' + err.message));
+    console.log('Account deleted');
+    // this.userService.deleteUser(this.loggedUser.email, this.loggedUser.password).then(() => {
+    //     localStorage.removeItem('activeAppUser');
+    //     this.loggedUser = undefined;
+    //   }
+    // ).catch(err => alert(err.code + ':' + err.message));
   }
 }

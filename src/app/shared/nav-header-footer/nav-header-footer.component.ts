@@ -18,12 +18,24 @@ export class NavHeaderFooterComponent implements OnInit {
     {path: 'login', label: 'Log in'}
   ];
 
+  navLinksActivUser: NavLink[] = [
+    {path: 'car/search', label: 'Search'},
+    {path: 'car/upload', label: 'Let the car work'},
+    {path: 'termsofuse', label: 'Terms of use'},
+    {path: 'login', label: 'Cabinet'}
+  ];
+
   topCities: string[] = ['New York', 'Tokyo', 'Paris', 'London', 'Los Angeles', 'Vienna', 'Moscow', 'Warsaw', 'Berlin', 'Seattle'];
 
   constructor() {
   }
 
   ngOnInit() {
+
   }
 
+  userIsLogged() {
+    return localStorage.getItem('activeAppUser') ? true : false;
+  }
 }
+
