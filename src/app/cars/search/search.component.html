@@ -71,6 +71,7 @@
         <span>Price range ($/per day):</span>
         <span id="num_price_range">{{priceRange}}</span>
         <br><br>
+
 <!--        <input id="price_range" type="range" min="20" max="500" step="5" [(ngModel)]="priceRange">-->
         <npn-slider [min]="50" [max]="500" [step]="10" (onChange)="onSliderChange($event)"></npn-slider>
       </div>
@@ -95,10 +96,10 @@
     </div>
 
     <!--  ///////////////////////  Block for Google Map with car's marker-->
-    <agm-map *ngIf="mapActive" [latitude]="carPoint.latitude" [longitude]="carPoint.longitude" [zoom]="11" icon="map">
-      <agm-marker [latitude]="carPoint.latitude" [longitude]="carPoint.longitude"></agm-marker>
-      <agm-marker [latitude]="carPoint.latitude - 0.025" [longitude]="carPoint.longitude + 0.027"></agm-marker>
-      <agm-marker [latitude]="carPoint.latitude - 0.022" [longitude]="carPoint.longitude - 0.007"></agm-marker>
+    <agm-map *ngIf="mapActive" [latitude]="carAddress.latitude" [longitude]="carAddress.longitude" [zoom]="11" icon="map">
+      <agm-marker [latitude]="carAddress.latitude" [longitude]="carAddress.longitude"></agm-marker>
+      <agm-marker [latitude]="carAddress.latitude - 0.025" [longitude]="carAddress.longitude + 0.027"></agm-marker>
+      <agm-marker [latitude]="carAddress.latitude - 0.022" [longitude]="carAddress.longitude - 0.007"></agm-marker>
     </agm-map>
 
   </div>

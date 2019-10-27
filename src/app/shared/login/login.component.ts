@@ -24,6 +24,8 @@ export class LoginComponent implements OnInit {
   logInUser(form: NgForm) {
     this.userService.logInUser(form.value.email, form.value.password).then(data => {
       localStorage.setItem('activeAppUser', JSON.stringify({data}));
+      localStorage.setItem('TOKEN', btoa(form.value.email + ':' + form.value.password));
+      console.log(atob(localStorage.getItem('TOKEN')));
       this.loggedUser = data;
     }).catch(err => {
       alert(err.message);
@@ -32,6 +34,7 @@ export class LoginComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('activeAppUser');
+    localStorage.removeItem('TOKEN');
     this.loggedUser = undefined;
   }
 

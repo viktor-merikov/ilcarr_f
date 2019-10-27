@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CarCoord} from '../cars_abstract';
+import {CarAddress} from '../car-interfaces';
 
 
 @Component({
@@ -13,7 +13,7 @@ export class SearchComponent implements OnInit {
   mapActive = false;
   searchActive = true;
   filtersActive = false;
-  carPoint: CarCoord = {latitude: 32.2970637, longitude: 34.85437006}; // Israel coordinates
+  carAddress: CarAddress = {latitude: 32.2970637, longitude: 34.85437006, place_id: 'IL'}; // Israel coordinates
 
   constructor() {
   }
@@ -39,6 +39,7 @@ export class SearchComponent implements OnInit {
   }
 
   onSliderChange(selectedNumbers: number[]) {
+    // TODO
     console.log(selectedNumbers);
   }
 }

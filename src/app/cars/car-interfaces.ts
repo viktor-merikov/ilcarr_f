@@ -1,10 +1,10 @@
 import {User} from '../user/user_abstract';
 
 export interface Car {
-  pick_up_place: Address;
   serial_number: string;
   make: string;
-  year: string;
+  model: string;
+  year: number;
   engine: string;
   fuel: string;
   gear: string;
@@ -16,16 +16,13 @@ export interface Car {
   car_class: string;
   price_per_day: number;
   distance_included: number;
+  about: string;
+  pick_up_place: CarAddress;
   image_url: string[];
 }
 
-export interface Address {
-  country: string;
-  region: string;
-  city: string;
-  street: string;
-  apartment: string;
-  zip: number;
+export interface CarAddress {
+  place_id: string;
   latitude: number;
   longitude: number;
 }
@@ -39,23 +36,4 @@ export interface BookedPeriod {
   amount: number;
   booking_date: string;
   person_who_booked: User;
-}
-
-export interface CarCoord {
-  latitude: number;
-  longitude: number;
-}
-
-
-export abstract class CarServiceAbstract {
-
-  abstract addCar(car: Car): Promise<Car>;
-
-  abstract updateCar(car: Car): Promise<Car>;
-
-  abstract deleteCar(): Promise<void>;
-
-  abstract getCarByID(endpoint: string, serialNumber: string): Promise<Car>;
-
-  abstract getBookedPeriods(serialNumber: string): Promise<BookedPeriod[]>;
 }

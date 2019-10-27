@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Cloudinary} from '@cloudinary/angular-5.x';
 import {environment} from '../../../environments/environment';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
+import {NgForm} from '@angular/forms';
 
 export interface ImageCar {
   url: string;
@@ -26,9 +27,9 @@ export class UploadComponent implements OnInit {
   latitude = 30.8760272;
   longitude = 35.0015196;
   zoom = 8;
-  years: number[] = [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
   selectedFile: File = null;
   uploadedImages: ImageCar[] = [];
+  feats: number[] = [1];
 
   constructor(private cloudinary: Cloudinary, private httpClient: HttpClient) {
   }
@@ -62,5 +63,14 @@ export class UploadComponent implements OnInit {
 
   onDeleteFile() {
     // TODO
+  }
+
+  addFeatInput() {
+    this.feats.push(this.feats.length);
+  }
+
+
+  onAddCar(form: NgForm) {
+    console.log(form);
   }
 }

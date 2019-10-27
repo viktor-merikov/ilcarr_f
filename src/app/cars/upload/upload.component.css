@@ -25,13 +25,27 @@
   padding-top: 60px;
 }
 
-#main_form input {
+#main_form input, select {
+  appearance:none;
   box-sizing: border-box;
   width: 325px;
   height: 45px;
   margin-bottom: 20px;
   border: 1px solid #5F727E;
-  padding: 20px 0 0 2px;
+  padding: 20px 0 0 5px;
+  font: 400 13px/24px Raleway;
+}
+
+#main_form select + i.fa{
+  position: relative;
+  right: 20px;
+  bottom: 6px;
+  color: #6C7E8B;
+  pointer-events: none;
+}
+
+#main_form select option {
+  font: 400 18px Raleway;
 }
 
 #main_form textarea {
@@ -39,6 +53,15 @@
   height: 310px;
   resize: none;
   padding: 5px 0 0 5px;
+  font: 400 13px/24px Raleway;
+}
+
+#main_form #feat_inp i.far{
+  position: relative;
+  right: 20px;
+  bottom: 7px;
+  color: #6C7E8B;
+  cursor: pointer;
 }
 
 #main_form button {

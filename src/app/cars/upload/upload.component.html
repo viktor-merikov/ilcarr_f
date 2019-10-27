@@ -1,5 +1,5 @@
 <!--////////////////////////////////////////////This our block with form add car///////////////////////////////////////////////////////-->
-<form id="main_form">
+<form id="main_form" #formCar="ngForm" ngForm>
   <p id="titl_1">Let the car work</p>
   <p id="titl_2">Candy canes topping dessert jelly beans pie jelly beans sweet roll. Toffee cotton candy cake chocolate
     cake. Bonbon
@@ -22,30 +22,85 @@
 
   <div>
     <p>Car details:</p>
-    <li><input type="text" list="test" placeholder="Make"></li>
-    <li><input type="text" list="test" placeholder="Model"></li>
-    <li><input type="text" list="years" placeholder="Year"></li>
-    <li><input type="text" list="test" placeholder="Engine"></li>
-    <li><input type="text" list="test" placeholder="Fuel"></li>
-    <li><input type="text" list="test" placeholder="Transmission"></li>
-    <li><input type="text" list="test" placeholder="WD"></li>
-    <li><input type="text" list="test" placeholder="Horsepower"></li>
-    <li><input type="text" list="test" placeholder="Torque"></li>
-    <li><input type="text" list="test" placeholder="Doors"></li>
-    <li><input type="text" list="test" placeholder="Seats"></li>
-    <li><input type="text" list="test" placeholder="Class"></li>
-    <li><input type="text" list="test" placeholder="Fuel consumption"></li>
+    <li><input type="text" placeholder="Make"></li>
+    <li><input type="text" placeholder="Model"></li>
+    <li>
+      <!--      <input type="number" placeholder="Year" [min]="2000">-->
+      <select type="number" name="year" #year="ngModel" ngModel>
+        <option disabled value="">Year</option>
+        <option value=2001>2001</option>
+        <option value=2002>2002</option>
+        <option value=2003>2003</option>
+        <option value=2004>2004</option>
+        <option value=2005>2005</option>
+        <option value=2006>2006</option>
+        <option value=2007>2007</option>
+        <option value=2008>2008</option>
+        <option value=2009>2009</option>
+        <option value=2010>2010</option>
+        <option value=2011>2011</option>
+        <option value=2012>2012</option>
+        <option value=2013>2013</option>
+        <option value=2014>2014</option>
+        <option value=2015>2015</option>
+        <option value=2016>2016</option>
+        <option value=2017>2017</option>
+        <option value=2018>2018</option>
+        <option value=2019>2019</option>
+        <option value=2020>2020</option>
+      </select>
+      <i class="fa fa-chevron-down"></i>
+    </li>
+    <li><input type="text" placeholder="Engine"></li>
+    <li>
+      <!--      <input type="text" placeholder="Fuel">-->
+      <select name="fuel" #fuel="ngModel" ngModel>
+        <option disabled value="">Fuel</option>
+        <option value="gasoline">Gasoline</option>
+        <option value="diesel">Diesel</option>
+        <option value="gas">Gas</option>
+        <option value="hybrid">Hybrid</option>
+        <option value="electric">Electric</option>
+      </select>
+      <i class="fa fa-chevron-down"></i>
+    </li>
+    <li>
+      <!--      <input type="text" placeholder="Transmission">-->
+      <select name="transm" #transm="ngModel" ngModel>
+        <option disabled value="">Transmission</option>
+        <option value="AT">AT</option>
+        <option value="MT">MT</option>
+      </select>
+      <i class="fa fa-chevron-down"></i>
+    </li>
+    <li><input type="text" placeholder="WD"></li>
+    <li><input type="number" placeholder="Horsepower"></li>
+    <li><input type="text" placeholder="Torque"></li>
+    <li>
+      <!--      <input type="number" placeholder="Doors">-->
+      <select name="doors" #doors="ngModel" ngModel>
+        <option disabled value="">Doors</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <i class="fa fa-chevron-down"></i>
+    </li>
+    <li><input type="number" placeholder="Seats"></li>
+    <li><input type="text" placeholder="Class"></li>
+    <li><input type="number" placeholder="Fuel consumption"></li>
   </div>
-
 
   <div>
     <p>About:</p>
     <textarea maxlength="500" placeholder="About (max 500 chars)"></textarea>
   </div>
 
-  <div>
+  <div id="feat_inp">
     <p>Features:</p>
-    <input type="text" placeholder="Type feature">
+    <ng-container *ngFor="let fet of feats"><input type="text" placeholder="Type feature" name="features" #features="ngModel" ngModel>
+      <i class="far fa-plus" (click)="addFeatInput()"></i> <br></ng-container>
   </div>
 
   <div>
@@ -53,15 +108,13 @@
     <input type="text" placeholder="Price">
   </div>
 
-  <button type="button">Submit</button>
-
-  <datalist id="test">
-    <option>First</option>
-    <option>Second</option>
-    <option>Third</option>
-  </datalist>
+  <button type="button" (click)="onAddCar(formCar)">Submit</button>
 
 </form>
+
+
+<!----------------Right side of terms of Use with MAP and Add images----------------------------------->
+
 
 <div id="map_img">
   <div id="map">
