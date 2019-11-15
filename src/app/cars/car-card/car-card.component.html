@@ -1,8 +1,11 @@
 <div class="car_card">
-  <img src="../../../assets/big_azlk.png">
+  <a (click)="onCarView()"><img src="{{car.image_url[0]}}"></a>
   <div class="name_car">
-    <p>MERCEDES-BENZ G-CLASS <span>2019</span></p>
-    <div class="foto_price"><sup>$</sup>180<span>per day</span></div>
+    <p>{{car.make + ' ' + car.model}} <span>{{car.year}}</span></p>
+    <div class="foto_price">
+      <sup>$</sup>
+      <div>{{car.price_per_day | number:'1.0-0'}}</div>
+      <span>per day</span></div>
   </div>
 </div>
 

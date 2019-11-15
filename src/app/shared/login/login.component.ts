@@ -10,53 +10,24 @@ import {User, UserServiceAbstract} from '../../user/user_abstract';
 
 export class LoginComponent implements OnInit {
   private loggedUser: User;
-  private activateDialog = false;
 
   constructor(private userService: UserServiceAbstract) {
   }
 
   ngOnInit() {
     if (localStorage.getItem('activeAppUser')) {
-      this.loggedUser = JSON.parse(localStorage.getItem('activeAppUser')).data;
+      this.loggedUser = JSON.parse(localStorage.getItem('activeAppUser')).user;
     }
   }
 
   logInUser(form: NgForm) {
-    this.userService.logInUser(form.value.email, form.value.password).then(data => {
-      localStorage.setItem('activeAppUser', JSON.stringify({data}));
+    this.userService.logInUser(form.value.email, form.value.password).then(user => {
+      user.email = form.value.email;
+      localStorage.setItem('activeAppUser', JSON.stringify({user}));
       localStorage.setItem('TOKEN', btoa(form.value.email + ':' + form.value.password));
-      console.log(atob(localStorage.getItem('TOKEN')));
-      this.loggedUser = data;
+      this.loggedUser = user;
     }).catch(err => {
       alert(err.message);
     });
-  }
-
-  logout() {
-    localStorage.removeItem('activeAppUser');
-    localStorage.removeItem('TOKEN');
-    this.loggedUser = undefined;
-  }
-
-  deleteUser() {
-    this.activateDialog = true;
-  }
-
-  closeModal(event) {
-    if (event) {
-      this.logout();
-      this.deleteAccount();
-    }
-    this.activateDialog = false;
-  }
-
-  deleteAccount() {
-    // TODO
-    console.log('Account deleted');
-    // this.userService.deleteUser(this.loggedUser.email, this.loggedUser.password).then(() => {
-    //     localStorage.removeItem('activeAppUser');
-    //     this.loggedUser = undefined;
-    //   }
-    // ).catch(err => alert(err.code + ':' + err.message));
   }
 }

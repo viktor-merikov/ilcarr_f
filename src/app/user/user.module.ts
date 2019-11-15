@@ -4,15 +4,20 @@ import {FeedbackComponent} from './feedback/feedback.component';
 import {UserServiceAbstract} from './user_abstract';
 import {UserService} from './user.service';
 import {HttpClientModule} from '@angular/common/http';
+import {UserCabinetComponent} from './user-cabinet/user-cabinet.component';
+import {ModalDialogComponent} from './modal-dialog/modal-dialog.component';
+import {MyCarsComponent} from './my-cars/my-cars.component';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
-  declarations: [FeedbackComponent],
+  declarations: [FeedbackComponent, UserCabinetComponent, ModalDialogComponent, MyCarsComponent],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forChild([{path: 'user/mycars', component: MyCarsComponent}])
   ],
-  exports: [FeedbackComponent],
+  exports: [FeedbackComponent, UserCabinetComponent],
   providers: [{provide: UserServiceAbstract, useClass: UserService}]
 })
 export class UserModule {

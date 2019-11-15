@@ -14,6 +14,13 @@ body {
   width: 1903px;
 }
 
+label {
+  font: 400 13px/24px Raleway, sans-serif;
+  color: #06263998;
+  position: absolute;
+  padding: 20px 0 0 5px;
+}
+
 .invalid {
   padding: 5px;
   position: absolute;

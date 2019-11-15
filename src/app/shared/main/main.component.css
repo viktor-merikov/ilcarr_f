@@ -35,14 +35,14 @@
   margin: 10px 0 10px 20px;
 }
 
-#search_form ul input {
+#search_form input {
   box-sizing: border-box;
   width: 370px;
   height: 45px;
   border: 1px solid #5F727E;
-  padding: 20px 0 0px 5px;
-  font: normal 13px/24px Raleway;
-  color: #06263998;
+  padding: 0 0 0 80px;
+  font: 700 24px/24px Raleway;
+  color: #062639;
 }
 
 #search_form button {

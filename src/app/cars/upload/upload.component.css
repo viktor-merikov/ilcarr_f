@@ -1,3 +1,12 @@
+/*general*/
+i.fa {
+  position: relative;
+  right: 20px;
+  bottom: 6px;
+  color: #6C7E8B;
+  pointer-events: none;
+}
+
 /* Styles for input form */
 #main_form {
   padding-left: 150px;
@@ -26,7 +35,7 @@
 }
 
 #main_form input, select {
-  appearance:none;
+  appearance: none;
   box-sizing: border-box;
   width: 325px;
   height: 45px;
@@ -34,14 +43,6 @@
   border: 1px solid #5F727E;
   padding: 20px 0 0 5px;
   font: 400 13px/24px Raleway;
-}
-
-#main_form select + i.fa{
-  position: relative;
-  right: 20px;
-  bottom: 6px;
-  color: #6C7E8B;
-  pointer-events: none;
 }
 
 #main_form select option {
@@ -56,7 +57,7 @@
   font: 400 13px/24px Raleway;
 }
 
-#main_form #feat_inp i.far{
+#main_form #feat_inp i.far {
   position: relative;
   right: 20px;
   bottom: 7px;
@@ -64,7 +65,7 @@
   cursor: pointer;
 }
 
-#main_form button {
+#main_form button#formSub {
   width: 190px;
   height: 50px;
   background-color: #EA2340;
@@ -73,6 +74,10 @@
   color: white;
   margin: 150px 0 200px 0;
   cursor: pointer;
+}
+
+#main_form button#formSub:disabled {
+background-color: silver;
 }
 
 /*Styles for map and img*/

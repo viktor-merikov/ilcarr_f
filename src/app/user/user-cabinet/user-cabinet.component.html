@@ -1,0 +1,22 @@
+<div id="user_logged">
+  <div>
+    <h2>Welcome to ilCarr</h2>
+    <span>{{loggedUser.first_name}} {{loggedUser.second_name}}</span>
+  </div>
+  <br><br><br><br>
+  <app-modal-dialog
+    *ngIf="activateDialog"
+    [header]="'Delete account'"
+    [description]="'Do you want delete own account?'"
+    (isConfirmed)="closeModal($event)">
+  </app-modal-dialog>
+
+  <div id="cab_buttons" *ngIf="!activateDialog">
+    <button>My rented history</button>
+    <button routerLink="/user/mycars">My cars</button>
+    <button>Edit account</button>
+    <button (click)="deleteUser()">Delete account</button>
+    <button (click)="logout()">Log out</button>
+  </div>
+</div>
+

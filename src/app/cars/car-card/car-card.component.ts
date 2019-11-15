@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Car} from '../car-interfaces';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-car-card',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() car: Car;
+
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
   }
 
+  onCarView() {
+    this.router.navigate(['/view'], {fragment: this.car.serial_number}).then();
+  }
 }

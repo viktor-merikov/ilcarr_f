@@ -4,12 +4,19 @@
     <p id="rw_1">Find your car now!</p>
     <p id="rw_2">Type your data and hit Yalla!</p>
     <form>
-      <ul>
-        <li><input type="text" placeholder="Location"></li>
-        <li><input type="text" placeholder="From"></li>
-        <li><input type="text" placeholder="Till"></li>
-      </ul>
-      <button type="button">Y'alla!</button>
+      <li>
+        <label>Location</label>
+        <input type="text" #location value="Tel Aviv">
+      </li>
+      <li>
+        <label>From</label>
+        <input type="datetime-local" #from value="{{toDay| date: 'yyyy-MM-ddT12:00'}}">
+      </li>
+      <li>
+        <label>Till</label>
+        <input type="datetime-local" #till min="{{from.value}}" value="{{toDay| date: 'yyyy-MM-ddT12:00'}}">
+      </li>
+      <button type="button" (click)="onSearch(location, from, till)">Y'alla!</button>
     </form>
   </div>
 </div>

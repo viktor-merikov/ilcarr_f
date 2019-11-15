@@ -4,9 +4,9 @@
 
   <div id="left_container">
     <div id="foto">
-      <img src="../../../assets/big_azlk.png">
-      <p>MERCEDES-BENZ G-CLASS <span>2019</span></p>
-      <div id="foto_price"><sup>$</sup>180<span>per day</span></div>
+      <img src="{{car.image_url[1]}}">
+      <p>{{car.make + "   " + car.model}} <span>{{car.year}}</span></p>
+      <div id="foto_price"><sup>$</sup><div>{{car.price_per_day}}</div><span>per day</span></div>
     </div>
     <div id="foto_stars">
       <span id="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
@@ -23,58 +23,42 @@
           <li>WD:</li>
         </div>
         <div class="box_info">
-          <li>3.0L V6 DOHC</li>
-          <li>Gas</li>
-          <li>Automatic</li>
-          <li>12l/100km</li>
-          <li>RWD</li>
+          <li>{{car.engine}}</li>
+          <li>{{car.fuel}}</li>
+          <li>{{car.gear}}</li>
+          <li>{{car.fuel_consumption}}/100km</li>
+          <li>{{car.wheels_drive}}</li>
         </div>
         <div class="box_name">
-          <li>HP:</li>
-          <li>Torque:</li>
           <li>Doors:</li>
           <li>Seats:</li>
           <li>Class:</li>
+          <li>Distance included:</li>
         </div>
         <div class="box_info">
-          <li>250</li>
-          <li>330</li>
-          <li>4</li>
-          <li>5</li>
-          <li>C</li>
+          <li>{{car.doors}}</li>
+          <li>{{car.seats}}</li>
+          <li>{{car.car_class}}</li>
+          <li>{{car.distance_included}}</li>
         </div>
       </div>
 
       <div id="location">
         <div class="box_name">Location:</div>
-        <div>Ulitsa Generala Lizyukova, 4, Voronezh, Voronezh Oblast, Russia, 394053</div>
+        <div>{{car.pick_up_place.place_id}}</div>
       </div>
 
       <div id="about">
         <div class="box_name">About:</div>
-        <div>BRAND NEW FULLY LOADED CUSTOM 2018 RANGE ROVER HSE with a 3.0 Liter Supercharged V6 Engine. The
-          Range Rover HSE has a 380 horsepower V6, 8-Speed automatic transmission with gearshift paddles, all wheel
-          drive,
-          sliding panoramic roof, Bluetooth and USB, touch screen interface with navigation and interactive driver
-          display. ADDITIONAL CUSTOM UPGRADES INCLUDE painted brake calibers yellow with decals, powder coated wheels
-          gloss black, window tint 35%, and full blackout package.
+        <div>
+          {{car.about}}
         </div>
       </div>
 
       <div id="features">
         <div class="box_name">Features:</div>
         <div>
-          <li>- 22 inch wheels</li>
-          <li>- Power gestured roof</li>
-          <li>- Heated front seats</li>
-          <li>- Heated steering wheel</li>
-          <li>- Ambient interior lighting</li>
-          <li>- Meridian sound system</li>
-          <li>- Interactive driver display</li>
-          <li>- Lane departure warning</li>
-          <li>- Emergency braking</li>
-          <li>- Traffic sign recognition</li>
-          <li>- Adaptive speed limited</li>
+          <li *ngFor="let featur of car.features">-{{featur}}</li>
         </div>
       </div>
     </div>
@@ -92,18 +76,20 @@
     <div id="search_form">
       <p id="rw_1">Still available in your area</p>
       <form>
-        <ul>
-          <li><input type="" placeholder="Location"></li>
-          <li><input type="date" placeholder="From"></li>
-          <li><input type="date" placeholder="Till"></li>
-        </ul>
+        <li>
+          <label>From</label>
+          <input type="datetime-local" value="{{toDay | date: 'yyyy-MM-ddT12:00'}}">
+        </li>
+        <li>
+          <label>Till</label>
+          <input type="datetime-local" value="{{toDay | date: 'yyyy-MM-ddT12:00'}}">
+        </li>
         <button type="button">Rent now!</button>
       </form>
     </div>
 
-    <agm-map [latitude]="latitude" [longitude]="longitude"
-             (mapClick)="onChoseLocation($event)">
-      <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    <agm-map [latitude]="car.pick_up_place.latitude" [longitude]="car.pick_up_place.longitude" [zoom]="18">
+      <agm-marker [latitude]="car.pick_up_place.latitude" [longitude]="car.pick_up_place.longitude"></agm-marker>
     </agm-map>
   </div>
 

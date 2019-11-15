@@ -14,6 +14,11 @@
   padding: 100px 0 0 8%;
 }
 
+#foto > img {
+  width: 1060px;
+  height: 600px;
+}
+
 #foto_form #right_container {
   margin-top: 100px;
   display: grid;
@@ -22,12 +27,12 @@
 
 #foto_form #foto p {
   padding-left: 12%;
-  font: Bold 54px/66px Bebas Neue;
+  font: 700 54px/66px Bebas Neue;
   color: #062639;
 }
 
 #foto_form #foto p span {
-  font: Bold 32px/38px Bebas Neue;
+  font: 700 32px/38px Bebas Neue;
   color: #06263998;
 }
 
@@ -39,22 +44,32 @@
   height: 100px;
   background: #FFFFFF no-repeat padding-box;
   box-shadow: 0 3px 6px #00000052;
-  font: Bold 88px Bebas Neue;
+  font: 700 88px Bebas Neue;
   color: #062639;
 }
 
+#foto_price {
+  text-align: center;
+}
+
+#foto_price > div {
+  margin-right: 40px;
+}
+
 #foto_form #foto_price sup {
-  padding: 0 10px 0 10px;
+  padding: 0.5rem;
   font: 700 31px Raleway;
+  float: left;
 }
 
 #foto_form #foto_price span {
   display: block;
   float: right;
-  margin: 33px 0 0 0;
-  font: Bold 24px/29px Bebas Neue;
+  font: 700 24px/29px Bebas Neue;
   color: #06263998;
   transform: rotate(270deg);
+  position: relative;
+  bottom: 70px;
 }
 
 #left_container #foto_stars {
@@ -80,45 +95,45 @@
 
 #car_info {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-left: 90px;
+  grid-template-columns: 3fr 2fr;
+  margin-left: 50px;
   width: 90%;
 }
 
-#car_info div{
+#car_info div {
   font: 400 16px/24px Raleway;
-  padding: 0 0 40px 50px;
+  padding: 0 0 40px 5px;
 }
 
-.box_name{
+.box_name {
   text-align: right;
   padding-right: 20px;
   color: #06263998;
 }
 
-#car_info #general{
+#car_info #general {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
 
-#car_info #location, #features{
+#car_info #location, #features {
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
 
-#car_info #about{
+#car_info #about {
   display: grid;
   grid-template-columns: 1fr 3fr;
 }
 
-#feedback{
+#feedback {
   margin: 0 0 0 10vw;
 }
 
 
 /*Block right side with search form ang Google Maps*/
 
-#right_container agm-map{
+#right_container agm-map {
   margin-bottom: 450px;
   width: 680px;
   height: 530px;
@@ -145,14 +160,14 @@
   margin: 20px;
 }
 
-#search_form ul input {
+#search_form input {
   box-sizing: border-box;
   width: 371px;
   height: 46px;
   border: 1px solid #5F727E;
-  padding: 20px 0 0 2px;
-  font: 400 13px/24px Raleway;
-  color: #06263998;
+  padding: 0 0 0 80px;
+  font: 700 24px/24px Raleway;
+  color: #062639;
 }
 
 #search_form button {

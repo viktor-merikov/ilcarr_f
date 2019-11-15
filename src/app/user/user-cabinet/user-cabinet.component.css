@@ -1,0 +1,31 @@
+/*Card after login*/
+#user_logged {
+  float: right;
+  width: 33%;
+  height: 766px;
+  box-shadow: 0 3px 6px #0000005F;
+  text-align: center;
+  vertical-align: center;
+}
+
+#user_logged h2 {
+  font: 900 32px Raleway;
+  color: #EA2340;
+  padding: 20px;
+}
+
+#user_logged span {
+  font: 400 20px/25px Raleway;
+  color: #062639;
+  padding: 10px;
+}
+
+#user_logged button {
+  margin: 20px 0 20px 4%;
+  width: 190px;
+  height: 50px;
+  background-color: #EA2340;
+  box-shadow: 0 3px 6px #00000052;
+  font: bold 18px Raleway;
+  color: white;
+}

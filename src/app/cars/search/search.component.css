@@ -1,5 +1,9 @@
 /*/////////////////////Styles for blocks with forms and cars list///////////////////////////////////////////////*/
 
+.slider > .bar {
+  height: 1px !important;
+}
+
 
 #main_container {
   width: 100%;
@@ -81,16 +85,14 @@
   margin: 20px;
 }
 
-#filters_form ul input {
+#filters_form input {
   box-sizing: border-box;
   width: 371px;
   height: 46px;
   border: 1px solid #5F727E;
-  text-align: left;
-  padding: 20px 0 0 2px;
-  font: normal 13px/24px Raleway;
-  letter-spacing: 0;
-  color: #06263998;
+  padding: 0 0 0 80px;
+  font: 700 24px/24px Raleway;
+  color: #062639;
 }
 
 #filters_form span {
@@ -110,15 +112,15 @@
   margin: 20px;
 }
 
-#search_form ul input {
+#search_form input {
   box-sizing: border-box;
   width: 371px;
   height: 46px;
   border: 1px solid #5F727E;
   text-align: left;
-  padding: 20px 0 0 2px;
-  font: 400 13px/24px Raleway;
-  color: #06263998;
+  padding: 0 0 0 80px;
+  font: 700 24px/24px Raleway;
+  color: #062639;
 }
 
 #search_form span {
@@ -159,7 +161,7 @@
   cursor: pointer;
 }
 
-npn-slider .bar{
+npn-slider .bar {
   height: 2px !important;
   color: #062639;
 }
@@ -171,22 +173,8 @@ npn-slider .bar{
 }
 
 #price_range {
-  appearance: none;
-  margin: 0 0 0 20px;
-  background-color: #062639;
-  width: 370px;
-  height: 2px;
+  width: 400px;
 }
-
-#range #price_range::-webkit-slider-thumb {
-  appearance: none;
-  background-color: #062639;
-  width: 30px;
-  height: 45px;
-  cursor: pointer;
-  clip-path: polygon(50% 50%, 50% 50%, 100% 100%, 0 100%);
-}
-
 
 /*/////////////////////////Styles for right container with cars list//////////////////////////////////////////*/
 
@@ -201,7 +189,8 @@ npn-slider .bar{
   padding: 85px 75px 0 75px;
 }
 
-#right_container a {
+app-car-card{
   margin-bottom: 40px;
 }
+
 

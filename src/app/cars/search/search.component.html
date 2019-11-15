@@ -53,27 +53,34 @@
     <div id="search_form" *ngIf="searchActive">
       <p id="rw_1">Find your car now!</p>
       <form>
-        <ul>
-          <li><input type="text" placeholder="Location"></li>
-          <li><input type="text" placeholder="From"></li>
-          <li><input type="text" placeholder="Till"></li>
-        </ul>
+        <li>
+          <label>Location</label>
+          <input type="text" value="{{city}}">
+        </li>
+        <li>
+          <label>From</label>
+          <input type="datetime-local" value="{{from| date: 'yyyy-MM-ddT12:00'}}">
+        </li>
+        <li>
+          <label>Till</label>
+          <input type="datetime-local" value="{{till| date: 'yyyy-MM-ddT12:00'}}">
+        </li>
       </form>
       <br><br>
       <span>Sort by:</span>
       <br>
       <div id="price_filter">
-        <button id="price_high">Price (low to high)</button>
-        <button id="price_low">Price (high to low)</button>
+        <button id="price_high" (click)="sortListCars('lowToHigh')">Price (low to high)</button>
+        <button id="price_low" (click)="sortListCars('highToLow')">Price (high to low)</button>
       </div>
       <br><br><br><br>
       <div id="range">
         <span>Price range ($/per day):</span>
-        <span id="num_price_range">{{priceRange}}</span>
+        <span id="num_price_range">{{minPrice}} - {{maxPrice}}</span>
         <br><br>
-
-<!--        <input id="price_range" type="range" min="20" max="500" step="5" [(ngModel)]="priceRange">-->
-        <npn-slider [min]="50" [max]="500" [step]="10" (onChange)="onSliderChange($event)"></npn-slider>
+        <div id="price_range">
+          <npn-slider [min]="50" [max]="500" [step]="10" (onChange)="onSliderChange($event)"></npn-slider>
+        </div>
       </div>
     </div>
 
@@ -81,37 +88,55 @@
     <div id="filters_form" *ngIf="filtersActive">
       <p id="rw_filters">Find your car now!</p>
       <form>
-        <ul>
-          <li><input type="text" placeholder="Make"></li>
-          <li><input type="text" placeholder="Model"></li>
-          <li><input type="text" placeholder="Year"></li>
-          <li><input type="text" placeholder="Engine"></li>
-          <li><input type="text" placeholder="Fuel"></li>
-          <li><input type="text" placeholder="Transmission"></li>
-          <li><input type="text" placeholder="WD"></li>
-          <li><input type="text" placeholder="Horsepower"></li>
-          <li><input type="text" placeholder="Fuel consumption"></li>
-        </ul>
+        <li>
+          <label>Make</label>
+          <input type="text">
+        </li>
+        <li>
+          <label>Model</label>
+          <input type="text">
+        </li>
+        <li>
+          <label>Year</label>
+          <input type="text">
+        </li>
+        <li>
+          <label>Engine</label>
+          <input type="text">
+        </li>
+        <li>
+          <label>Fuel</label>
+          <input type="text">
+        </li>
+        <li>
+          <label>Gear</label>
+          <input type="text">
+        </li>
+        <li>
+          <label>WD</label>
+          <input type="text">
+        </li>
+        <li>
+          <label>Fuel cons.</label>
+          <input type="text">
+        </li>
       </form>
     </div>
 
     <!--  ///////////////////////  Block for Google Map with car's marker-->
-    <agm-map *ngIf="mapActive" [latitude]="carAddress.latitude" [longitude]="carAddress.longitude" [zoom]="11" icon="map">
-      <agm-marker [latitude]="carAddress.latitude" [longitude]="carAddress.longitude"></agm-marker>
-      <agm-marker [latitude]="carAddress.latitude - 0.025" [longitude]="carAddress.longitude + 0.027"></agm-marker>
-      <agm-marker [latitude]="carAddress.latitude - 0.022" [longitude]="carAddress.longitude - 0.007"></agm-marker>
+    <agm-map *ngIf="mapActive" [latitude]="carAddress.latitude" [longitude]="carAddress.longitude" [zoom]="9">
+      <agm-marker
+        *ngFor="let car of cars"
+        [latitude]="car.pick_up_place.latitude"
+        [longitude]="car.pick_up_place.longitude">
+      </agm-marker>
     </agm-map>
 
   </div>
 
   <!-- Cars list -->
   <div id="right_container">
-    <a routerLink="/view"><app-car-card></app-car-card></a>
-    <a routerLink="/view"><app-car-card></app-car-card></a>
-    <a routerLink="/view"><app-car-card></app-car-card></a>
-    <a routerLink="/view"><app-car-card></app-car-card></a>
-    <a routerLink="/view"><app-car-card></app-car-card></a>
-    <a routerLink="/view"><app-car-card></app-car-card></a>
+    <app-car-card *ngFor="let car of cars" [car]="car"></app-car-card>
   </div>
 
 </div>

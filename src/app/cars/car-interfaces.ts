@@ -19,6 +19,8 @@ export interface Car {
   about: string;
   pick_up_place: CarAddress;
   image_url: string[];
+  owner?: User;
+  booked_periods?: BookedPeriod[];
 }
 
 export interface CarAddress {
@@ -36,4 +38,9 @@ export interface BookedPeriod {
   amount: number;
   booking_date: string;
   person_who_booked: User;
+}
+
+export interface ImageCar {
+  url: string;
+  public_id: string;
 }

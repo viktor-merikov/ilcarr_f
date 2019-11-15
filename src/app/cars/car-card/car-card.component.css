@@ -1,5 +1,10 @@
-.car_card img{
+.car_card img {
   width: 520px;
+  height: 310px;
+}
+
+.car_card > a {
+  cursor: pointer;
 }
 
 .name_car p {
@@ -30,11 +35,13 @@
 
 .foto_price sup {
   font: 700 18px Raleway;
-  padding-right: 5px;
+  padding: 0.5rem;
+  float: left;
 }
 
 .foto_price span {
   display: block;
+  position: relative;
   width: 60px;
   float: right;
   margin-top: -60px;
