@@ -8,7 +8,6 @@ import {SignupComponent} from './signup/signup.component';
 import {CarsModule} from '../cars/cars.module';
 import {UserModule} from '../user/user.module';
 import {TermsofuseComponent} from './termsofuse/termsofuse.component';
-import {FormsModule} from '@angular/forms';
 import {routes} from './routes';
 
 @NgModule({
@@ -20,8 +19,7 @@ import {routes} from './routes';
     CommonModule,
     RouterModule.forRoot(routes),
     CarsModule,
-    UserModule,
-    FormsModule
+    UserModule
   ]
 })
 export class SharedModule {

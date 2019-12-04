@@ -1,0 +1,7 @@
+<agm-map [latitude]="carAddress.latitude" [longitude]="carAddress.longitude" [zoom]="9">
+  <agm-marker
+    *ngFor="let carCord of carsCoordinates"
+    [latitude]="carCord.lat"
+    [longitude]="carCord.lng">
+  </agm-marker>
+</agm-map>

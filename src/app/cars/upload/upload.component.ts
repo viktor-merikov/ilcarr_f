@@ -4,8 +4,7 @@ import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Car, ImageCar} from '../car-interfaces';
-import {CarServiceAbstract} from '../cars-service-abstract';
-import {error} from 'util';
+import {CarAbstract} from '../services/cars-service-abstract';
 
 @Component({
   selector: 'app-upload',
@@ -23,7 +22,7 @@ export class UploadComponent implements OnInit {
   private uploadedImages: ImageCar[] = [];
   private carInformation: FormGroup;
 
-  constructor(private cloudinary: Cloudinary, private carsService: CarServiceAbstract, private httpClient: HttpClient) {
+  constructor(private cloudinary: Cloudinary, private carsService: CarAbstract, private httpClient: HttpClient) {
   }
 
   ngOnInit() {

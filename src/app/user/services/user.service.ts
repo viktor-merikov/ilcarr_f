@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {User, UserServiceAbstract} from './user_abstract';
-import {environment} from '../../environments/environment';
+import {environment} from '../../../environments/environment';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 const serverURL = environment.serverURL;
@@ -43,6 +43,11 @@ export class UserService implements UserServiceAbstract {
     return this.httpClient.get<User>(serverURL + '/user/login', {headers: authHeader}).toPromise();
   }
 
+  logOut() {
+    localStorage.removeItem('activeAppUser');
+    localStorage.removeItem('TOKEN');
+  }
+
   updateUser(user: User, oldPassword: string): Promise<User> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -55,6 +60,10 @@ export class UserService implements UserServiceAbstract {
       first_name: user.first_name,
       second_name: user.second_name
     }, httpOptions).toPromise();
+  }
+
+  isAuth(): boolean {
+    return !!localStorage.getItem('activeAppUser');
   }
 
 }

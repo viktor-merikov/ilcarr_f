@@ -1,4 +1,4 @@
-<!--////////////////////////////////////////This block for main picture and registration form///////////////////////////////////////////////////////////-->
+<!--///////////////Block for main picture and registration form//////////////////////////////////////////////////////-->
 <div class="reg_side">
   <div id="reg_left"></div>
 
@@ -7,38 +7,55 @@
       <p id="rw_1">Registration</p>
       <p id="rw_2">Type your data and hit Yalla!</p>
 
-      <form #form="ngForm" (ngSubmit)="registrationUser(form)">
+      <form [formGroup]="suForm" (ngSubmit)="onSubmit()">
+
         <li>
-          <input type="text" placeholder="Name" name="firstName" #firstName="ngModel" ngModel required
-                 pattern="[a-zA-Z]+"><br>
-          <span *ngIf="firstName.errors?.pattern" class="invalid">Incorrect first name</span>
+          <label>First name</label>
+          <input type="text" formControlName="first_name"
+                 [ngClass]="{invalid: suForm.get('first_name').touched && suForm.get('first_name').invalid}"><br>
+          <div class="validator" *ngIf="suForm.get('first_name').touched && suForm.get('first_name').invalid">
+            <small *ngIf="suForm.get('first_name').errors.required">First name is required field</small>
+          </div>
         </li>
 
-        <li><input type="text" placeholder="Last Name" name="lastName" #lastName="ngModel" ngModel required
-                   pattern="[a-zA-Z]+"><br>
-          <span *ngIf="lastName.errors?.pattern" class="invalid">Incorrect last name</span>
+        <li>
+          <label>Last name</label>
+          <input type="text" formControlName="second_name"
+                 [ngClass]="{invalid: suForm.get('second_name').touched && suForm.get('second_name').invalid}"><br>
+          <div class="validator" *ngIf="suForm.get('second_name').touched && suForm.get('second_name').invalid">
+            <small *ngIf="suForm.get('second_name').errors.required">Second name is required field</small>
+          </div>
         </li>
 
-        <li><input type="email" placeholder="Email" name="email" #email="ngModel" ngModel required email><br>
-          <span *ngIf="email.errors?.email" class="invalid">Incorrect email</span>
+        <li>
+          <label>Email</label>
+          <input type="email" formControlName="email"
+                 [ngClass]="{invalid: suForm.get('email').touched && suForm.get('email').invalid}"><br>
+          <div class="validator" *ngIf="suForm.get('email').touched && suForm.get('email').invalid">
+            <small *ngIf="suForm.get('email').errors.required">Email is required field</small>
+            <small *ngIf="suForm.get('email').errors.email">Invalid email</small>
+          </div>
         </li>
 
-        <li><input type="password" placeholder="Password" name="password" #password="ngModel" ngModel required
-                   pattern="((?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,12})"><br>
-          <span *ngIf="password.errors?.pattern" class="invalid">
-            Password must contain lowercase, uppercase letters and digit
-          </span>
+        <li>
+          <label>Password</label>
+          <input type="password" formControlName="password"
+                 [ngClass]="{invalid: suForm.get('password').touched && suForm.get('password').invalid}"><br>
+          <div class="validator" *ngIf="suForm.get('password').touched && suForm.get('password').invalid">
+            <small *ngIf="suForm.get('password').errors.required">Password is required field</small>
+            <small *ngIf="suForm.get('password').errors.minlength">Please enter at least 8 characters</small>
+          </div>
         </li>
+
         <br><br>
-        <p id="reg_check"><input type="checkbox" #check="ngModel" ngModel [ngModelOptions]="{standalone: true}"
-                                 required>
+        <p id="reg_check"><input type="checkbox" formControlName="checkTerms">
           I agree to the <a href="#">terms of use </a>and <a href="#">privacy policy</a>.
         </p>
+
         <br>
         <div id="reqMessage" *ngIf="reqMessage">{{reqMessage}}</div>
         <br><br><br>
-        <button type="submit"
-                [disabled]="form.invalid || check.invalid">
+        <button type="submit" [disabled]="suForm.invalid || !suForm.get('checkTerms').value">
           Y'alla!
         </button>
       </form>
@@ -48,7 +65,7 @@
   </div>
 </div>
 
-<!--///////////////////////////////////////////This block is our information with Join Now button////////////////////////////////////////////////////////-->
+<!--///////////////Block is our information with Join Now button/////////////////////////////////////////////////////-->
 <div class="join_box">
   <!-- Red line-->
   <div id="l2"></div>
@@ -68,15 +85,15 @@
         Affordable prices
         Guaranteed cars
       </pre>
-      <button>Join now!</button>
+      <button class="btn-join-info" routerLink="/signup">Join now!</button>
     </div>
   </div>
 </div>
 
-<!--////////////////////////////////////// Component with TOP 3 cars/////////////////////////////////////////////////////////////-->
+<!--////////////// Block with TOP 3 cars/////////////////////////////////////////////////////////////////////////////-->
 <app-top-three-cars></app-top-three-cars>
 
-<!--////////////////////////////////////// This block is our Latest feedback from costumers/////////////////////////////////////////////////////////////-->
+<!--////////////// This block is our Latest feedback from costumers//////////////////////////////////////////////////-->
 <div class="feed_main">
 
   <div id="feed_head">

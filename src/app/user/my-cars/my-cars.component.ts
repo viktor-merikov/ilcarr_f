@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CarsService} from '../../cars/cars.service';
+import {CarsService} from '../../cars/services/cars.service';
 import {Car} from '../../cars/car-interfaces';
 
 @Component({
@@ -20,5 +20,17 @@ export class MyCarsComponent implements OnInit {
     this.carService.ownerGetCars().then(cars => {
       this.myCars = cars;
     });
+  }
+
+
+  delete(serialNumber: string) {
+    // TODO
+    // this.carService.deleteCar(serialNumber).then(() => {
+    //   alert(`Car ${serialNumber} deleted successfully`);
+    // });
+  }
+
+  editCar(serialNumber: string) {
+    // TODO
   }
 }

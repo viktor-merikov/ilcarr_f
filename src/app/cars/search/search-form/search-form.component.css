@@ -1,0 +1,75 @@
+#search_form {
+  height: 955px;
+  background: #FFFFFF no-repeat padding-box;
+  box-shadow: 0 3px 6px #0000005F;
+  padding: 0 0 0 130px;
+}
+
+#search_form #rw_1 {
+  font: 900 32px Raleway;
+  color: #EA2340;
+  padding-left: 20px;
+  padding-top: 50px;
+}
+
+#search_form li {
+  margin: 20px;
+}
+
+#search_form input {
+  box-sizing: border-box;
+  width: 371px;
+  height: 46px;
+  border: 1px solid #5F727E;
+  text-align: left;
+  padding: 0 0 0 80px;
+  font: 700 24px/24px Raleway;
+  color: #062639;
+}
+
+#search_form span {
+  font: 400 16px/24px Raleway;
+  color: #6C7E8B;
+  padding-left: 20px;
+}
+
+#search_form #price_filter {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+#search_form #price_low {
+  width: 200px;
+  height: 38px;
+  border: 1px solid #6C7E8B;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
+  color: #06263998;
+  font: 400 16px/24px Raleway;
+  text-align: right;
+  padding-right: 5px;
+  margin-left: -38px;
+  cursor: pointer;
+}
+
+#search_form #price_high {
+  border: 0;
+  width: 200px;
+  height: 38px;
+  background: #6C7E8B no-repeat padding-box;
+  clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
+  color: #FFFFFF;
+  font: 400 16px/24px Raleway;
+  box-sizing: content-box;
+  text-align: left;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+#range #num_price_range {
+  font: 700 24px Raleway;
+  color: #062639;
+}
+
+#price_range {
+  width: 400px;
+}

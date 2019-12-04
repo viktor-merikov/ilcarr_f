@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {CarServiceAbstract} from './cars-service-abstract';
-import {BookedPeriod, Car} from './car-interfaces';
+import {CarAbstract} from './cars-service-abstract';
+import {BookedPeriod, Car} from '../car-interfaces';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {environment} from '../../environments/environment';
+import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs';
 
 const serverURL = environment.serverURL;
@@ -11,7 +11,7 @@ const serverURL = environment.serverURL;
   providedIn: 'root'
 })
 
-export class CarsService implements CarServiceAbstract {
+export class CarsService implements CarAbstract {
 
   private httpOptions = {
     headers: new HttpHeaders({

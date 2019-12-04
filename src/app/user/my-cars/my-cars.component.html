@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="myCars; else noCars">
 
   <div class="card" *ngFor="let c of myCars">
     <img src="{{c.image_url[0]}}">
@@ -16,9 +16,12 @@
       </div>
     </div>
     <div class="btns">
-      <button class="btn">Edit</button>
-      <button class="btn">Delete</button>
+      <button class="btn" (click)="editCar(c.serial_number)">Edit</button>
+      <button class="btn" (click)="delete(c.serial_number)">Delete</button>
     </div>
   </div>
 
 </div>
+<ng-template #noCars>
+  <p>You don't have a rental car.</p>
+</ng-template>

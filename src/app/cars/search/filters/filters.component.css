@@ -1,0 +1,33 @@
+#filters_form {
+  height: 955px;
+  background: #FFFFFF no-repeat padding-box;
+  box-shadow: 0 3px 6px #0000005F;
+  padding: 0 0 0 15%;
+}
+
+#filters_form #rw_filters {
+  font: 900 32px Raleway;
+  color: #EA2340;
+  padding-left: 20px;
+  padding-top: 50px;
+}
+
+#filters_form li {
+  margin: 20px;
+}
+
+#filters_form input {
+  box-sizing: border-box;
+  width: 371px;
+  height: 46px;
+  border: 1px solid #5F727E;
+  padding: 0 0 0 80px;
+  font: 700 24px/24px Raleway;
+  color: #062639;
+}
+
+#filters_form span {
+  font: 400 16px/24px Raleway;
+  color: #6C7E8B;
+  padding-left: 20px;
+}

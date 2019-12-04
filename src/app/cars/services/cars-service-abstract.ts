@@ -1,7 +1,7 @@
-import {BookedPeriod, Car} from './car-interfaces';
+import {BookedPeriod, Car, Filter, Paginator, SearchCarParams} from '../car-interfaces';
 import {Observable} from 'rxjs';
 
-export abstract class CarServiceAbstract {
+export abstract class CarAbstract {
 
   abstract addCar(car: Car): Promise<Car>;
 
@@ -18,4 +18,15 @@ export abstract class CarServiceAbstract {
   abstract ownerGetCarById(serialNumber: string): Promise<Car>;
 
   abstract bestBooked3Cars(): Observable<Car[]>;
+}
+
+export abstract class FiltersAbstract {
+
+  abstract searchByCoordinates(): Observable<Paginator>;
+
+  abstract searchCar(searchParams: SearchCarParams): Observable<Paginator>;
+
+  abstract searchByFilters(): Observable<Paginator>;
+
+  abstract getFilters(): Promise<Filter>;
 }

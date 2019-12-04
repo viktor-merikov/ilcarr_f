@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CarsService} from '../cars.service';
+import {CarsService} from '../services/cars.service';
 import {Car} from '../car-interfaces';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';

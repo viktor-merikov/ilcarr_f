@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {UserServiceAbstract} from '../../user/user_abstract';
-import {NgForm} from '@angular/forms';
+import {User, UserServiceAbstract} from '../../user/services/user_abstract';
+import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
+import {error} from 'util';
 
 @Component({
   selector: 'app-signup',
@@ -10,33 +11,35 @@ import {NgForm} from '@angular/forms';
 export class SignupComponent implements OnInit {
 
   reqMessage = '';
+  suForm: FormGroup;
 
-  constructor(private userService: UserServiceAbstract) {
+  constructor(private userService: UserServiceAbstract, private fb: FormBuilder) {
   }
 
   ngOnInit() {
+    this.suForm = this.fb.group({
+      first_name: [null, Validators.required],
+      second_name: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required, Validators.minLength(8)]], // Validators.pattern('((?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,12})')
+      checkTerms: [null, Validators.required]
+    });
   }
 
-  registrationUser(form: NgForm) {
-    if (form === undefined) {
+  onSubmit() {
+    if (this.suForm.invalid) {
       return;
-    } else {
-      this.userService.addUser({
-        email: form.value.email,
-        password: form.value.password,
-        first_name: form.value.firstName,
-        second_name: form.value.lastName
-      }).then(data => {
-        console.log(JSON.stringify(data));
+    }
+    this.userService.addUser(this.suForm.value as User)
+      .then(response => {
+        console.log(JSON.stringify(response));
         this.reqMessage = 'Successfully registered';
         setTimeout(() => {
           this.reqMessage = '';
-          form.reset();
+          this.suForm.reset();
         }, 2000);
       }).catch(err => {
-        alert(err.error.status + ' email already exist');
-      });
-    }
+      alert(err.error.status + err.error.message);
+    });
   }
-
 }

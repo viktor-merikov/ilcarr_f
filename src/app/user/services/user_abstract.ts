@@ -18,4 +18,8 @@ export abstract class UserServiceAbstract {
   abstract updateUser(user: User, oldPassword: string): Promise<User>;
 
   abstract deleteUser(email: string, password: string): Promise<void>;
+
+  abstract isAuth(): boolean;
+
+  abstract logOut();
 }

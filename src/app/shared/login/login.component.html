@@ -10,23 +10,42 @@
 
   <!--  Block hidden when user logged in-->
   <div id="reg_right" *ngIf="!loggedUser">
+    <div class="alert" *ngIf="message">{{message}}</div>
     <div id="reg_form">
       <div>
         <p id="rw_1">Log in</p>
         <p id="rw_2">Type your data and hit Yalla!</p>
       </div>
-      <form #form="ngForm" (ngSubmit)="logInUser(form)">
-        <li><input type="email" placeholder="Email" name="email" #email="ngModel" ngModel required email><br>
-          <span *ngIf="email.errors?.email" class="invalid">Incorrect email form</span>
+
+
+      <form [formGroup]="logForm" (ngSubmit)="onLogin()">
+
+        <li>
+          <label>Email</label>
+          <input type="email" formControlName="email"
+                 [ngClass]="{invalid: logForm.get('email').touched && logForm.get('email').invalid}"><br>
+          <div class="validator" *ngIf="logForm.get('email').touched && logForm.get('email').invalid">
+            <small *ngIf="logForm.get('email').errors.required">Email is required field</small>
+            <small *ngIf="logForm.get('email').errors.email">Invalid email</small>
+          </div>
         </li>
-        <li><input type="password" placeholder="Password" name="password" #password="ngModel" ngModel required>
-          <br>
+
+        <li>
+          <label>Password</label>
+          <input type="password" formControlName="password"
+                 [ngClass]="{invalid: logForm.get('password').touched && logForm.get('password').invalid}"><br>
+          <div class="validator" *ngIf="logForm.get('password').touched && logForm.get('password').invalid">
+            <small *ngIf="logForm.get('password').errors.required">Password is required field</small>
+            <small *ngIf="logForm.get('password').errors.minlength">Please enter at least 8 characters</small>
+          </div>
         </li>
+
         <br>
-        <button type="submit" [disabled]="form.invalid">Y'alla!</button>
+        <button type="submit" [disabled]="logForm.invalid">Y'alla!</button>
       </form>
 
-      <p id="reg_check">Forgot your password? <a href="#">Click here. </a></p>
+
+      <p id="reg_check">Forgot your password? <a href="#">Click here.</a></p>
     </div>
     <div id="l1"></div>
   </div>
@@ -52,7 +71,7 @@
         Affordable prices
         Guaranteed cars
       </pre>
-      <button routerLink="/signup">Join now!</button>
+      <button class="btn-join-info" routerLink="/signup">Join now!</button>
     </div>
   </div>
 </div>

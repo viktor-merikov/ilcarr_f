@@ -48,95 +48,12 @@
       <div class="line_button" style="background: #6C7E8B;"></div>
     </div>
 
-
-    <!-- ////////Block with form location, dates rent car and sorting of price-->
-    <div id="search_form" *ngIf="searchActive">
-      <p id="rw_1">Find your car now!</p>
-      <form>
-        <li>
-          <label>Location</label>
-          <input type="text" value="{{city}}">
-        </li>
-        <li>
-          <label>From</label>
-          <input type="datetime-local" value="{{from| date: 'yyyy-MM-ddT12:00'}}">
-        </li>
-        <li>
-          <label>Till</label>
-          <input type="datetime-local" value="{{till| date: 'yyyy-MM-ddT12:00'}}">
-        </li>
-      </form>
-      <br><br>
-      <span>Sort by:</span>
-      <br>
-      <div id="price_filter">
-        <button id="price_high" (click)="sortListCars('lowToHigh')">Price (low to high)</button>
-        <button id="price_low" (click)="sortListCars('highToLow')">Price (high to low)</button>
-      </div>
-      <br><br><br><br>
-      <div id="range">
-        <span>Price range ($/per day):</span>
-        <span id="num_price_range">{{minPrice}} - {{maxPrice}}</span>
-        <br><br>
-        <div id="price_range">
-          <npn-slider [min]="50" [max]="500" [step]="10" (onChange)="onSliderChange($event)"></npn-slider>
-        </div>
-      </div>
-    </div>
-
-    <!--    Block with search filters for filtering cars -->
-    <div id="filters_form" *ngIf="filtersActive">
-      <p id="rw_filters">Find your car now!</p>
-      <form>
-        <li>
-          <label>Make</label>
-          <input type="text">
-        </li>
-        <li>
-          <label>Model</label>
-          <input type="text">
-        </li>
-        <li>
-          <label>Year</label>
-          <input type="text">
-        </li>
-        <li>
-          <label>Engine</label>
-          <input type="text">
-        </li>
-        <li>
-          <label>Fuel</label>
-          <input type="text">
-        </li>
-        <li>
-          <label>Gear</label>
-          <input type="text">
-        </li>
-        <li>
-          <label>WD</label>
-          <input type="text">
-        </li>
-        <li>
-          <label>Fuel cons.</label>
-          <input type="text">
-        </li>
-      </form>
-    </div>
-
-    <!--  ///////////////////////  Block for Google Map with car's marker-->
-    <agm-map *ngIf="mapActive" [latitude]="carAddress.latitude" [longitude]="carAddress.longitude" [zoom]="9">
-      <agm-marker
-        *ngFor="let car of cars"
-        [latitude]="car.pick_up_place.latitude"
-        [longitude]="car.pick_up_place.longitude">
-      </agm-marker>
-    </agm-map>
-
+    <router-outlet></router-outlet>
   </div>
 
   <!-- Cars list -->
   <div id="right_container">
-    <app-car-card *ngFor="let car of cars" [car]="car"></app-car-card>
+    <app-car-card *ngFor="let car of carSearchService.getFilteredCars()" [car]="car"></app-car-card>
   </div>
 
 </div>

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {User} from '../user_abstract';
+import {User} from '../services/user_abstract';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-user-cabinet',
@@ -12,7 +13,7 @@ export class UserCabinetComponent implements OnInit {
   @Output() userLogOut = new EventEmitter();
   private activateDialog = false;
 
-  constructor() {
+  constructor(private userService: UserService) {
   }
 
   ngOnInit() {
@@ -27,8 +28,7 @@ export class UserCabinetComponent implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem('activeAppUser');
-    localStorage.removeItem('TOKEN');
+    this.userService.logOut();
     this.userLogOut.emit();
   }
 
